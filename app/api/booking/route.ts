@@ -61,7 +61,7 @@ export async function POST(req: NextRequest) {
       to: FIRM_EMAIL,
       subject: `New Appointment Request from ${fullName}`,
       html: emailHtml,
-      reply_to: email,
+      replyTo: email,
     });
 
     if (error) {
