@@ -1,17 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const FIRM_EMAIL = process.env.NEXT_PUBLIC_FIRM_EMAIL || "hirtech10@gmail.com";
+const FIRM_EMAIL = process.env.NEXT_PUBLIC_FIRM_EMAIL || "hiripvt@gmail.com";
+const GMAIL_USER = process.env.GMAIL_USER;
+const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD;
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: GMAIL_USER,
+    pass: GMAIL_APP_PASSWORD,
+  },
+});
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const { fullName, email, phone, practiceArea, preferredDate, preferredTime, message } = body;
 
-    if (!process.env.RESEND_API_KEY) {
+    if (!GMAIL_USER || !GMAIL_APP_PASSWORD) {
       return NextResponse.json(
-        { error: "Server email configuration is missing. Please set RESEND_API_KEY in .env.local" },
+        { error: "Server email configuration is missing. Please set GMAIL_USER and GMAIL_APP_PASSWORD in .env.local" },
         { status: 500 }
       );
     }
@@ -55,23 +64,18 @@ export async function POST(req: NextRequest) {
       </div>
     `;
 
-    // Resend free tier allows sending from onboarding@resend.dev to your verified email
-    const { data, error } = await resend.emails.send({
-      from: 'onboarding@resend.dev',
+    const info = await transporter.sendMail({
+      from: `"Arthajuris Website" <${GMAIL_USER}>`,
       to: FIRM_EMAIL,
       subject: `New Appointment Request from ${fullName}`,
       html: emailHtml,
       replyTo: email,
     });
 
-    if (error) {
-      console.error("Resend API error:", error);
-      return NextResponse.json({ error: error.message }, { status: 400 });
-    }
-
-    return NextResponse.json({ success: true, data });
-  } catch (error) {
+    return NextResponse.json({ success: true, messageId: info.messageId });
+  } catch (error: any) {
     console.error("Email send error:", error);
-    return NextResponse.json({ error: "Failed to send the email. Please try again later." }, { status: 500 });
+    return NextResponse.json({ error: error.message || "Failed to send the email. Please try again later." }, { status: 500 });
   }
 }
+
