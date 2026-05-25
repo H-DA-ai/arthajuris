@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export default function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -34,79 +35,17 @@ export default function ContactSection() {
 
   const contacts = [
     {
-      id: "email-mayura",
+      id: "email-firm",
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
           <polyline points="22,6 12,13 2,6" />
         </svg>
       ),
-      label: "Adv. Mayura Maru",
-      value: "advmarumayura@gmail.com",
-      href: "mailto:advmarumayura@gmail.com",
+      label: "Firm Email — All Enquiries Welcome",
+      value: "arthajurisfirm@gmail.com",
+      href: "mailto:arthajurisfirm@gmail.com",
       copy: true,
-    },
-    {
-      id: "email-pratap",
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-          <polyline points="22,6 12,13 2,6" />
-        </svg>
-      ),
-      label: "Adv. Pratap Temgire",
-      value: "prataptemgire@gmail.com",
-      href: "mailto:prataptemgire@gmail.com",
-      copy: true,
-    },
-    {
-      id: "email-uzma",
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-          <polyline points="22,6 12,13 2,6" />
-        </svg>
-      ),
-      label: "Adv. Uzma Khan",
-      value: "uzma2163@gmail.com",
-      href: "mailto:uzma2163@gmail.com",
-      copy: true,
-    },
-    {
-      id: "phone-mayura",
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.22 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-        </svg>
-      ),
-      label: "Adv. Mayura Maru",
-      value: "+91 9930883358 / 8369513026",
-      href: "tel:+919930883358",
-      copy: false,
-    },
-    {
-      id: "phone-pratap",
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.22 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-        </svg>
-      ),
-      label: "Adv. Pratap Temgire",
-      value: "+91 88282 51141",
-      href: "tel:+918828251141",
-      copy: false,
-    },
-    {
-      id: "phone-uzma",
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.22 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-        </svg>
-      ),
-      label: "Adv. Uzma Khan",
-      value: "+91 8291244249",
-      href: "tel:+918291244249",
-      copy: false,
     },
   ];
 
@@ -144,7 +83,7 @@ export default function ContactSection() {
               margin: "0 auto",
             }}
           >
-            Reach out directly to any of our partners or visit us at our office in Mumbai.
+          Reach out to us at our firm email or contact any member of the team. We respond within 24 business hours.
           </p>
         </div>
 
@@ -159,6 +98,7 @@ export default function ContactSection() {
         >
           {/* Left — Contact Cards */}
           <div>
+            {/* Email */}
             <div style={{ marginBottom: "32px" }}>
               <div
                 className="reveal"
@@ -178,7 +118,7 @@ export default function ContactSection() {
                 Email
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                {contacts.filter(c => c.id.startsWith("email")).map((contact) => (
+                {contacts.map((contact) => (
                   <div
                     key={contact.id}
                     className="reveal"
@@ -278,77 +218,49 @@ export default function ContactSection() {
               </div>
             </div>
 
-            <div>
-              <div
-                className="reveal"
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: "0.8rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                  color: "var(--text-light)",
-                  marginBottom: "16px",
-                  opacity: 0,
-                  transform: "translateY(20px)",
-                  transition: "all 0.6s ease",
-                }}
-              >
-                Phone
+            {/* Preferred contact note */}
+            <div
+              className="reveal"
+              style={{
+                padding: "20px 24px",
+                background: "var(--navy)",
+                borderRadius: "6px",
+                opacity: 0,
+                transform: "translateY(20px)",
+                transition: "all 0.6s ease",
+              }}
+            >
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "10px" }}>
+                ✦ How to Reach Us
               </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                {contacts.filter(c => c.id.startsWith("phone")).map((contact) => (
-                  <div
-                    key={contact.id}
-                    className="reveal"
-                    style={{ opacity: 0, transform: "translateY(20px)", transition: "all 0.6s ease" }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        padding: "16px 20px",
-                        background: "var(--white)",
-                        border: "1px solid var(--border-light)",
-                        borderRadius: "4px",
-                        gap: "14px",
-                        boxShadow: "var(--shadow-sm)",
-                      }}
-                    >
-                      <div style={{ color: "var(--gold)", display: "flex", alignItems: "center" }}>
-                        {contact.icon}
-                      </div>
-                      <div>
-                        <div
-                          style={{
-                            fontFamily: "'Inter', sans-serif",
-                            fontSize: "0.7rem",
-                            fontWeight: 600,
-                            letterSpacing: "0.08em",
-                            textTransform: "uppercase",
-                            color: "var(--text-light)",
-                            marginBottom: "2px",
-                          }}
-                        >
-                          {contact.label}
-                        </div>
-                        <a
-                          href={contact.href}
-                          style={{
-                            fontFamily: "'Inter', sans-serif",
-                            fontSize: "0.875rem",
-                            color: "var(--navy)",
-                            textDecoration: "none",
-                            fontWeight: 500,
-                          }}
-                        >
-                          {contact.value}
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.875rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.7, margin: 0 }}>
+                For all enquiries, please write to us at <a href="mailto:arthajurisfirm@gmail.com" style={{ color: "var(--gold)", fontWeight: 600 }}>arthajurisfirm@gmail.com</a>. For urgent matters, you may also book a consultation directly — our team will respond within 24 business hours.
+              </p>
+            </div>
+
+            {/* Location Image (Moved to left to balance layout) */}
+            <div
+              className="reveal"
+              style={{
+                opacity: 0,
+                transform: "translateY(20px)",
+                transition: "all 0.6s ease",
+                position: "relative",
+                width: "100%",
+                aspectRatio: "16/9",
+                height: "auto",
+                borderRadius: "8px",
+                overflow: "hidden",
+                marginTop: "32px",
+                boxShadow: "var(--shadow-sm)",
+              }}
+            >
+              <Image
+                src="/bombay_court_bg.png"
+                alt="Bombay High Court Location"
+                fill
+                style={{ objectFit: "cover", objectPosition: "top center" }}
+              />
             </div>
           </div>
 

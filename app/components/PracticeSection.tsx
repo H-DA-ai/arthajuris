@@ -1,8 +1,10 @@
 "use client";
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 
 const practiceAreas = [
   {
+    slug: "corporate-commercial-law",
     title: "Corporate & Commercial Law",
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -12,7 +14,7 @@ const practiceAreas = [
       </svg>
     ),
     description:
-      "Comprehensive corporate advisory including business contracts, arbitration, NCLT proceedings, winding up petitions, and insolvency code filings under the IBC.",
+      "Comprehensive corporate advisory covering business contracts, arbitration, NCLT proceedings, winding up petitions, and insolvency code filings under the IBC.",
     highlights: [
       "Business Contracts & Agreements",
       "NCLT — Insolvency & Winding Up",
@@ -22,6 +24,7 @@ const practiceAreas = [
     lead: "Adv. Mayura Maru",
   },
   {
+    slug: "property-real-estate-law",
     title: "Property & Real Estate Law",
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -30,16 +33,17 @@ const practiceAreas = [
       </svg>
     ),
     description:
-      "Full-spectrum real estate legal services including title search, due diligence, RERA matters, SRA, CIDCO, MIDC, redevelopment projects, and property transaction documentation.",
+      "Full-spectrum real estate legal services including title searches, RERA matters, SRA, CIDCO, MIDC, redevelopment projects, and comprehensive property transaction documentation.",
     highlights: [
       "Title Search & Due Diligence",
       "RERA, SRA & CIDCO Matters",
-      "Property Documentation",
+      "Property Documentation & Contracts",
       "Redevelopment Projects",
     ],
     lead: "Adv. Uzma Khan & Adv. Mayura Maru",
   },
   {
+    slug: "banking-debt-recovery",
     title: "Banking & Debt Recovery",
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -48,16 +52,17 @@ const practiceAreas = [
       </svg>
     ),
     description:
-      "Expert representation before Debt Recovery Tribunals (DRT & DRAT), SARFAESI proceedings, RDB Act applications, Section 138 NI Act, and banking recovery matters for banks and financial institutions.",
+      "Expert representation before Debt Recovery Tribunals (DRT & DRAT), SARFAESI proceedings, RDB Act applications, Section 138 NI Act, and banking recovery matters.",
     highlights: [
       "DRT & DRAT Proceedings",
       "SARFAESI & RDB Act",
       "Section 138 NI Act",
       "Loan Recovery & Banking",
     ],
-    lead: "Adv. Pratap Temgire & Adv. Mayura Maru",
+    lead: "Adv. Pratap Tengire & Adv. Mayura Maru",
   },
   {
+    slug: "civil-litigation",
     title: "Civil Litigation",
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -67,14 +72,15 @@ const practiceAreas = [
     description:
       "Handling civil suits, consumer forum cases, motor accident claims, medical negligence, defamation, recovery of money, and testamentary matters across courts in Maharashtra.",
     highlights: [
-      "Civil Suits & Recovery",
+      "Civil Suits & Money Recovery",
       "Consumer Forum Cases",
       "Motor Accident Claims",
-      "Medical Negligence",
+      "Medical Negligence & Defamation",
     ],
     lead: "Adv. Mayura Maru",
   },
   {
+    slug: "family-criminal-law",
     title: "Family & Criminal Law",
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -85,16 +91,17 @@ const practiceAreas = [
       </svg>
     ),
     description:
-      "Compassionate representation in family law matters including divorce petitions, domestic violence, bail applications, criminal trials, and appellate proceedings.",
+      "Compassionate and strategically sound representation in family law matters including divorce, domestic violence, as well as bail applications, criminal trials, and appellate proceedings.",
     highlights: [
-      "Divorce & Matrimonial",
+      "Divorce & Matrimonial Disputes",
       "Domestic Violence (DV Act)",
-      "Bail Applications",
-      "Criminal Trials & Appeals",
+      "Bail Applications & Criminal Trials",
+      "Criminal Appeals",
     ],
-    lead: "Adv. Mayura Maru & Adv. Pratap Temgire",
+    lead: "Adv. Mayura Maru & Adv. Pratap Tengire",
   },
   {
+    slug: "legal-documentation-compliance",
     title: "Legal Documentation & Compliance",
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -106,11 +113,11 @@ const practiceAreas = [
       </svg>
     ),
     description:
-      "Precise legal drafting, IGR-related procedures, APF reports, title certificates, audit reports, loan documentation review, and environmental & cyber law compliance.",
+      "Precise legal drafting, IGR-related procedures, APF reports, title certificates, legal audit reports, loan documentation review, and environmental & cyber law compliance advisory.",
     highlights: [
       "IGR Searches & E-filing",
-      "APF & Title Reports",
-      "Legal Opinions & Drafting",
+      "APF & Title Reports for Banks",
+      "Legal Opinions & Contract Drafting",
       "Environmental & Cyber Law",
     ],
     lead: "Adv. Uzma Khan",
@@ -151,43 +158,15 @@ export default function PracticeSection() {
         overflow: "hidden",
       }}
     >
-      {/* Background decoration */}
-      <div
-        style={{
-          position: "absolute",
-          top: "-100px",
-          right: "-100px",
-          width: "400px",
-          height: "400px",
-          borderRadius: "50%",
-          border: "1px solid rgba(201, 168, 76, 0.05)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          bottom: "-50px",
-          left: "-50px",
-          width: "250px",
-          height: "250px",
-          borderRadius: "50%",
-          border: "1px solid rgba(201, 168, 76, 0.06)",
-          pointerEvents: "none",
-        }}
-      />
+      <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "400px", height: "400px", borderRadius: "50%", border: "1px solid rgba(201, 168, 76, 0.05)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", bottom: "-50px", left: "-50px", width: "250px", height: "250px", borderRadius: "50%", border: "1px solid rgba(201, 168, 76, 0.06)", pointerEvents: "none" }} />
 
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "60px" }}>
           <div
             className="reveal section-tag"
-            style={{
-              opacity: 0,
-              transform: "translateY(20px)",
-              transition: "all 0.6s ease",
-              display: "inline-flex",
-            }}
+            style={{ opacity: 0, transform: "translateY(20px)", transition: "all 0.6s ease", display: "inline-flex" }}
           >
             What We Do
           </div>
@@ -200,16 +179,9 @@ export default function PracticeSection() {
           </h2>
           <p
             className="reveal section-subtitle light"
-            style={{
-              opacity: 0,
-              transform: "translateY(20px)",
-              transition: "all 0.6s ease",
-              margin: "0 auto",
-              maxWidth: "560px",
-            }}
+            style={{ opacity: 0, transform: "translateY(20px)", transition: "all 0.6s ease", margin: "0 auto", maxWidth: "560px" }}
           >
-            Our partners bring deep expertise across all major areas of law practiced
-            at courts throughout Maharashtra.
+            Click on any practice area to learn more about what it covers, the services we provide, and how we can assist you.
           </p>
         </div>
 
@@ -228,7 +200,8 @@ export default function PracticeSection() {
                 height: "100%",
               }}
             >
-              <div
+              <Link
+                href={`/expertise/${area.slug}`}
                 style={{
                   background: "rgba(255, 255, 255, 0.04)",
                   border: "1px solid rgba(201, 168, 76, 0.12)",
@@ -236,26 +209,26 @@ export default function PracticeSection() {
                   padding: "36px 32px",
                   height: "100%",
                   transition: "all 0.4s ease",
-                  cursor: "default",
+                  cursor: "pointer",
                   position: "relative",
                   overflow: "hidden",
                   display: "flex",
                   flexDirection: "column",
                   flex: 1,
+                  textDecoration: "none",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.07)";
-                  (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(201, 168, 76, 0.35)";
-                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(-6px)";
+                  (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.07)";
+                  (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(201, 168, 76, 0.35)";
+                  (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-6px)";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.04)";
-                  (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(201, 168, 76, 0.12)";
-                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
+                  (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.04)";
+                  (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(201, 168, 76, 0.12)";
+                  (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
                 }}
               >
                 <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-                  {/* Icon */}
                   <div
                     style={{
                       width: "64px",
@@ -273,7 +246,6 @@ export default function PracticeSection() {
                     {area.icon}
                   </div>
 
-                  {/* Title */}
                   <h3
                     style={{
                       fontFamily: "'Playfair Display', serif",
@@ -286,7 +258,6 @@ export default function PracticeSection() {
                     {area.title}
                   </h3>
 
-                  {/* Description */}
                   <p
                     style={{
                       fontFamily: "'Inter', sans-serif",
@@ -299,7 +270,6 @@ export default function PracticeSection() {
                     {area.description}
                   </p>
 
-                  {/* Highlights */}
                   <ul style={{ listStyle: "none", padding: 0, marginBottom: "24px" }}>
                     {area.highlights.map((h) => (
                       <li
@@ -330,33 +300,38 @@ export default function PracticeSection() {
                   </ul>
                 </div>
 
-                {/* Lead */}
                 <div
                   style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: "0.7rem",
-                    fontWeight: 600,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    color: "rgba(201, 168, 76, 0.6)",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
                     borderTop: "1px solid rgba(201, 168, 76, 0.1)",
                     paddingTop: "16px",
                   }}
                 >
-                  Lead: {area.lead}
+                  <div
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: "0.7rem",
+                      fontWeight: 600,
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase",
+                      color: "rgba(201, 168, 76, 0.6)",
+                    }}
+                  >
+                    {area.lead}
+                  </div>
+                  <div style={{ color: "var(--gold)", fontSize: "0.8rem", fontWeight: 600 }}>
+                    Learn More →
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>
 
         {/* Bottom CTA */}
-        <div
-          style={{
-            textAlign: "center",
-            marginTop: "60px",
-          }}
-        >
+        <div style={{ textAlign: "center", marginTop: "60px" }}>
           <p
             className="reveal"
             style={{
@@ -383,7 +358,7 @@ export default function PracticeSection() {
               document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" });
             }}
           >
-            <span>Schedule a Free Consultation</span>
+            <span>Schedule a Consultation</span>
           </button>
         </div>
       </div>

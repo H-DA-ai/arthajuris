@@ -129,10 +129,7 @@ export default function AboutSection() {
                 transition: "all 0.6s ease",
               }}
             >
-              ArthajurisLaw is a newly established Mumbai-based law firm founded by three accomplished legal
-              professionals who bring together decades of combined experience across diverse areas of law.
-              Our firm is built on the conviction that clients deserve not just legal representation, but a
-              trusted partner who understands the full context of their needs.
+              At Arthajuris, we believe that exceptional legal counsel requires more than just profound knowledge of the law — it demands a deep, strategic understanding of our clients' unique challenges. Our practice is built on the conviction that every client deserves a trusted partner who approaches their case with meticulous preparation and unwavering integrity.
             </p>
             <p
               className="reveal"
@@ -146,9 +143,7 @@ export default function AboutSection() {
                 transition: "all 0.6s ease",
               }}
             >
-              With a strong presence at the Bombay High Court and courts across Maharashtra, we handle
-              matters for individual clients, corporations, banks, and financial institutions with equal
-              dedication and professionalism.
+              Whether you are an individual seeking justice in personal matters, a growing enterprise managing complex commercial disputes, or a financial institution enforcing its rights, we design our legal strategies to deliver decisive and highly effective solutions. We navigate the complexities of the legal system so you can move forward with confidence.
             </p>
           </div>
 
@@ -166,20 +161,22 @@ export default function AboutSection() {
             }}
           >
             {/* Image Container */}
-            <div
-              style={{
-                position: "relative",
-                width: "100%",
-                height: "260px",
-                borderRadius: "8px",
-                overflow: "hidden",
-                border: "1px solid var(--border)",
-                boxShadow: "var(--shadow-sm)",
-              }}
-            >
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  aspectRatio: "16/9",
+                  height: "auto",
+                  borderRadius: "8px",
+                  overflow: "hidden",
+                  border: "1px solid var(--border)",
+                  boxShadow: "var(--shadow-sm)",
+                  background: "var(--cream-dark)",
+                }}
+              >
               <Image
-                src="/office_interior.png"
-                alt="Arthajuris Corporate Office"
+                src="/arthajuris_team_edited.png"
+                alt="Arthajuris Law Firm Team"
                 fill
                 style={{ objectFit: "cover" }}
                 sizes="(max-width: 900px) 100vw, 50vw"

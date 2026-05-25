@@ -29,7 +29,7 @@ export default function Navbar() {
   const navLinks = [
     { href: "#home", label: "Home", id: "home" },
     { href: "#about", label: "About", id: "about" },
-    { href: "#partners", label: "Partners", id: "partners" },
+    { href: "#partners", label: "Our Team", id: "partners" },
     { href: "#practice", label: "Practice Areas", id: "practice" },
     { href: "#booking", label: "Consultation", id: "booking" },
     { href: "#contact", label: "Contact", id: "contact" },
@@ -109,7 +109,7 @@ export default function Navbar() {
                   marginTop: "2px",
                 }}
               >
-                Law Firm
+                Proprietary Concern
               </div>
             </div>
           </button>

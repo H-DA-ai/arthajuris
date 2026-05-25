@@ -6,11 +6,13 @@ import PracticeSection from "./components/PracticeSection";
 import BookingSection from "./components/BookingSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import ScrollOverlay from "./components/ScrollOverlay";
 
 export default function Home() {
   return (
     <>
       <Navbar />
+      <ScrollOverlay />
       <main>
         <HeroSection />
         <AboutSection />
