@@ -197,7 +197,7 @@ export default function BookingSection() {
   const today = new Date().toISOString().split("T")[0];
 
   // ─── UPI Payment Screen ───────────────────────────────────────────────────
-  if (status === "upi") {
+  if (status === "upi" || status === "confirming") {
     const upiLink = `upi://pay?pa=${UPI_ID}&pn=Arthajuris&am=${CONSULTATION_FEE}&cu=INR&tn=Consultation Fee`;
     return (
       <section id="booking" ref={sectionRef} className="section" style={{ background: "var(--cream)" }}>
