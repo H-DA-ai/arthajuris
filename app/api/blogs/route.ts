@@ -42,14 +42,39 @@ function parseCSV(csvText: string): BlogPost[] {
       }
       values.push(current.trim());
 
-      const post: Record<string, string> = {};
+      const postRaw: Record<string, string> = {};
       headers.forEach((header, idx) => {
-        post[header] = values[idx] || "";
+        postRaw[header.toLowerCase().trim()] = values[idx] || "";
       });
 
-      return post as unknown as BlogPost;
+      const title = postRaw["title"] || "";
+      const isPublished = (postRaw["ready to publish?"] || postRaw["published"] || "FALSE").toUpperCase();
+
+      let rawImageUrl = postRaw["image link"] || postRaw["imageurl"] || "";
+      let rawVideoUrl = postRaw["video link"] || postRaw["videourl"] || "";
+
+      // Convert Google Drive view links to direct image links
+      if (rawImageUrl.includes("drive.google.com/file/d/")) {
+        const fileIdMatch = rawImageUrl.match(/\/d\/([a-zA-Z0-9_-]+)/);
+        if (fileIdMatch && fileIdMatch[1]) {
+          rawImageUrl = `https://drive.google.com/uc?export=view&id=${fileIdMatch[1]}`;
+        }
+      }
+
+      return {
+        slug: title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, ''),
+        title: title,
+        date: postRaw["date"] || "",
+        category: postRaw["category"] || "",
+        author: postRaw["author"] || "",
+        excerpt: postRaw["short summary"] || postRaw["excerpt"] || "",
+        content: postRaw["full content"] || postRaw["content"] || "",
+        imageUrl: rawImageUrl,
+        videoUrl: rawVideoUrl,
+        published: isPublished === "YES" || isPublished === "TRUE" ? "TRUE" : "FALSE"
+      } as BlogPost;
     })
-    .filter((post) => post.published?.toUpperCase() === "TRUE" && post.slug);
+    .filter((post) => post.published === "TRUE" && post.title);
 }
 
 export async function GET() {
