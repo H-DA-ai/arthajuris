@@ -43,8 +43,8 @@ export default function ContactSection() {
         </svg>
       ),
       label: "Firm Email — All Enquiries Welcome",
-      value: "arthajurisfirm@gmail.com",
-      href: "mailto:arthajurisfirm@gmail.com",
+      value: "arthajuris@gmail.com",
+      href: "mailto:arthajuris@gmail.com",
       copy: true,
     },
   ];
@@ -72,7 +72,7 @@ export default function ContactSection() {
             style={{ opacity: 0, transform: "translateY(20px)", transition: "all 0.6s ease" }}
           >
             Contact{" "}
-            <em style={{ fontStyle: "italic", color: "var(--gold)" }}>ArthajurisLaw</em>
+            <em style={{ fontStyle: "italic", color: "var(--gold)" }}>Artha Juris</em>
           </h2>
           <p
             className="reveal section-subtitle"
@@ -234,7 +234,7 @@ export default function ContactSection() {
                 ✦ How to Reach Us
               </div>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.875rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.7, margin: 0 }}>
-                For all enquiries, please write to us at <a href="mailto:arthajurisfirm@gmail.com" style={{ color: "var(--gold)", fontWeight: 600 }}>arthajurisfirm@gmail.com</a>. For urgent matters, you may also book a consultation directly — our team will respond within 24 business hours.
+                For all enquiries, please write to us at <a href="mailto:arthajuris@gmail.com" style={{ color: "var(--gold)", fontWeight: 600 }}>arthajuris@gmail.com</a>. For urgent matters, you may also book a consultation directly — our team will respond within 24 business hours.
               </p>
             </div>
 

@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 declare global {
   interface Window {
@@ -39,19 +40,14 @@ type FormState = {
 
 type Status = "idle" | "loading" | "paying" | "upi" | "confirming" | "success" | "error";
 
-const CONSULTATION_FEE = parseInt(process.env.NEXT_PUBLIC_CONSULTATION_FEE || "500");
-const RAZORPAY_KEY_ID = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "";
-const UPI_ID = process.env.NEXT_PUBLIC_UPI_ID || "arthajurisfirm@gmail.com";
-
-const isRazorpayConfigured =
-  RAZORPAY_KEY_ID &&
-  RAZORPAY_KEY_ID !== "rzp_test_placeholder" &&
-  RAZORPAY_KEY_ID.startsWith("rzp_");
+const CONSULTATION_FEE = parseInt(process.env.NEXT_PUBLIC_CONSULTATION_FEE || "3500");
+const UPI_ID = process.env.NEXT_PUBLIC_UPI_ID || "marumayura@okicici";
 
 export default function BookingSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [transactionRef, setTransactionRef] = useState("");
   const [form, setForm] = useState<FormState>({
     fullName: "",
     email: "",
@@ -83,17 +79,7 @@ export default function BookingSection() {
     return () => observer.disconnect();
   }, []);
 
-  // Dynamically load Razorpay script only if configured
-  useEffect(() => {
-    if (!isRazorpayConfigured) return;
-    const script = document.createElement("script");
-    script.src = "https://checkout.razorpay.com/v1/checkout.js";
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      if (document.body.contains(script)) document.body.removeChild(script);
-    };
-  }, []);
+
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -114,11 +100,11 @@ export default function BookingSection() {
     });
   };
 
-  const sendBookingEmails = async (paymentId: string = "UPI_MANUAL") => {
+  const sendBookingEmails = async (paymentId: string = "UPI_MANUAL", utrRef: string = "") => {
     const res = await fetch("/api/booking", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...form, paymentId }),
+      body: JSON.stringify({ ...form, paymentId, transactionRef: utrRef }),
     });
     if (!res.ok) {
       const data = await res.json();
@@ -126,50 +112,21 @@ export default function BookingSection() {
     }
   };
 
-  const handleRazorpayPayment = async () => {
-    setStatus("paying");
-    try {
-      const orderRes = await fetch("/api/create-razorpay-order", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: CONSULTATION_FEE, currency: "INR", receipt: `consult_${Date.now()}` }),
-      });
-      const orderData = await orderRes.json();
-      if (!orderRes.ok || !orderData.orderId) throw new Error(orderData.error || "Could not initiate payment.");
-
-      const options = {
-        key: RAZORPAY_KEY_ID,
-        amount: orderData.amount,
-        currency: orderData.currency,
-        name: "Arthajuris Legal Consultancy",
-        description: `Consultation Fee — ${form.practiceArea || "Legal Consultation"}`,
-        order_id: orderData.orderId,
-        prefill: { name: form.fullName, email: form.email, contact: form.phone },
-        theme: { color: "#c9a84c" },
-        handler: async (response: { razorpay_payment_id: string }) => {
-          setStatus("loading");
-          await sendBookingEmails(response.razorpay_payment_id);
-          setStatus("success");
-          resetForm();
-        },
-        modal: { ondismiss: () => setStatus("idle") },
-      };
-      const rzp = new window.Razorpay(options);
-      rzp.open();
-    } catch (err: unknown) {
-      setStatus("error");
-      setErrorMsg(err instanceof Error ? err.message : "Payment initiation failed.");
-    }
-  };
 
   const handleUpiConfirm = async () => {
+    if (!transactionRef.trim()) {
+      setErrorMsg("Please enter your UPI Transaction / UTR reference number.");
+      return;
+    }
     setStatus("confirming");
+    setErrorMsg("");
     try {
-      await sendBookingEmails("UPI_PENDING_CONFIRMATION");
+      await sendBookingEmails("UPI_PENDING_VERIFICATION", transactionRef.trim());
       setStatus("success");
       resetForm();
+      setTransactionRef("");
     } catch (err: unknown) {
-      setStatus("error");
+      setStatus("upi");
       setErrorMsg(err instanceof Error ? err.message : "Could not send confirmation. Please try again.");
     }
   };
@@ -186,107 +143,188 @@ export default function BookingSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
-    if (isRazorpayConfigured) {
-      await handleRazorpayPayment();
-    } else {
-      // Fallback: show UPI payment screen
-      setStatus("upi");
-    }
+    // Always show UPI QR payment screen
+    setStatus("upi");
   };
 
   const today = new Date().toISOString().split("T")[0];
 
-  // ─── UPI Payment Screen ───────────────────────────────────────────────────
+  // ─── UPI QR Payment Screen ────────────────────────────────────────────────
   if (status === "upi" || status === "confirming") {
-    const upiLink = `upi://pay?pa=${UPI_ID}&pn=Arthajuris&am=${CONSULTATION_FEE}&cu=INR&tn=Consultation Fee`;
     return (
       <section id="booking" ref={sectionRef} className="section" style={{ background: "var(--cream)" }}>
         <div className="container">
-          <div style={{ maxWidth: "580px", margin: "0 auto" }}>
+          <div style={{ maxWidth: "620px", margin: "0 auto" }}>
             <div style={{
               background: "var(--white)",
-              borderRadius: "12px",
-              padding: "48px",
+              borderRadius: "16px",
+              overflow: "hidden",
               boxShadow: "var(--shadow-lg)",
               border: "1px solid var(--border-light)",
-              textAlign: "center",
             }}>
-              <div style={{ width: "64px", height: "64px", borderRadius: "50%", background: "rgba(201,168,76,0.1)", border: "2px solid var(--gold)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.5">
-                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
-                  <line x1="1" y1="10" x2="23" y2="10" />
-                </svg>
-              </div>
-              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.625rem", color: "var(--navy)", marginBottom: "8px" }}>
-                Complete Your Payment
-              </h3>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", color: "var(--text-mid)", lineHeight: 1.7, marginBottom: "32px" }}>
-                Please pay the consultation fee of <strong style={{ color: "var(--navy)" }}>₹{CONSULTATION_FEE}</strong> using any UPI app (GPay, PhonePe, Paytm) and then click the confirm button below.
-              </p>
 
-              {/* UPI Details */}
-              <div style={{ background: "var(--cream)", border: "1px solid var(--border)", borderRadius: "8px", padding: "24px", marginBottom: "24px" }}>
-                <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "16px" }}>
-                  ✦ Pay via UPI
+              {/* Header */}
+              <div style={{
+                background: "linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%)",
+                padding: "32px 40px",
+                textAlign: "center",
+              }}>
+                <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "10px" }}>
+                  ✦ Consultation Booking
                 </div>
-                <div style={{ marginBottom: "16px" }}>
-                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", color: "var(--text-light)", marginBottom: "6px", textTransform: "uppercase", letterSpacing: "0.08em" }}>UPI ID</div>
-                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.125rem", fontWeight: 700, color: "var(--navy)", letterSpacing: "0.02em" }}>{UPI_ID}</div>
-                </div>
-                <div style={{ display: "flex", gap: "12px", justifyContent: "center", marginBottom: "16px" }}>
-                  <div style={{ padding: "10px 20px", background: "var(--white)", border: "1px solid var(--border-light)", borderRadius: "4px" }}>
-                    <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", color: "var(--text-light)", marginBottom: "4px" }}>Amount</div>
-                    <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.375rem", fontWeight: 700, color: "var(--navy)" }}>₹{CONSULTATION_FEE}</div>
-                  </div>
-                </div>
-                <a
-                  href={upiLink}
-                  style={{
-                    display: "inline-block",
-                    background: "linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%)",
-                    color: "var(--navy)",
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: "0.875rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    padding: "12px 28px",
-                    borderRadius: "2px",
-                    textDecoration: "none",
-                    marginBottom: "8px",
-                  }}
-                >
-                  Open UPI App to Pay
-                </a>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", color: "var(--text-light)", marginTop: "8px" }}>
-                  Or open any UPI app and pay to <strong>{UPI_ID}</strong>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.75rem", color: "var(--white)", fontWeight: 700, marginBottom: "8px" }}>
+                  Complete Your Payment
+                </h3>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", color: "rgba(255,255,255,0.6)", margin: 0 }}>
+                  Scan the QR below to pay the consultation fee
                 </p>
               </div>
 
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.875rem", color: "var(--text-mid)", lineHeight: 1.7, marginBottom: "24px" }}>
-                After completing the payment, click below to confirm your booking. We will verify your payment and send a confirmation email to <strong>{form.email}</strong>.
-              </p>
+              {/* Body */}
+              <div style={{ padding: "40px" }}>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                <button
-                  onClick={handleUpiConfirm}
-                  disabled={status === "confirming"}
-                  className="btn-primary w-full"
-                  style={{ justifyContent: "center", opacity: status === "confirming" ? 0.7 : 1 }}
-                >
-                  {status === "confirming" ? (
-                    <><span className="spinner" /><span>Confirming...</span></>
-                  ) : (
-                    <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>
-                    <span>I&apos;ve Completed the Payment</span></>
-                  )}
-                </button>
-                <button
-                  onClick={() => { setStatus("idle"); setErrorMsg(""); }}
-                  style={{ background: "none", border: "1px solid var(--border)", borderRadius: "2px", padding: "12px", fontFamily: "'Inter', sans-serif", fontSize: "0.8125rem", color: "var(--text-mid)", cursor: "pointer", transition: "all 0.2s" }}
-                >
-                  Go Back & Edit Details
-                </button>
+                {/* Amount Banner */}
+                <div style={{
+                  background: "rgba(201,168,76,0.07)",
+                  border: "1px solid rgba(201,168,76,0.25)",
+                  borderRadius: "8px",
+                  padding: "16px 24px",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginBottom: "32px",
+                }}>
+                  <div>
+                    <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-light)", marginBottom: "4px" }}>Consultation Fee</div>
+                    <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 700, color: "var(--navy)", lineHeight: 1 }}>₹{CONSULTATION_FEE.toLocaleString("en-IN")}</div>
+                  </div>
+                  <div style={{ textAlign: "right" }}>
+                    <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", color: "var(--text-light)", marginBottom: "4px" }}>UPI ID</div>
+                    <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", fontWeight: 700, color: "var(--navy)" }}>{UPI_ID}</div>
+                  </div>
+                </div>
+
+                {/* QR Code */}
+                <div style={{ textAlign: "center", marginBottom: "24px" }}>
+                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "16px" }}>
+                    ✦ Scan with GPay, PhonePe, Paytm or Any UPI App
+                  </div>
+                  <div style={{ position: "relative", width: "240px", height: "240px", margin: "0 auto", borderRadius: "12px", overflow: "hidden", border: "2px solid rgba(201,168,76,0.3)", boxShadow: "0 8px 32px rgba(0,0,0,0.12)" }}>
+                    <Image
+                      src="/payment_qr_v2.jpg"
+                      alt="Arthajuris UPI QR Code"
+                      fill
+                      style={{ objectFit: "contain", background: "#fff", padding: "16px" }}
+                    />
+                  </div>
+
+                  {/* Download QR Button */}
+                  <div style={{ marginTop: "16px" }}>
+                    <a
+                      href="/payment_qr_v2.jpg"
+                      download="Arthajuris-Payment-QR.jpg"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: "0.8rem",
+                        fontWeight: 600,
+                        color: "var(--navy)",
+                        background: "var(--cream)",
+                        border: "1px solid var(--border)",
+                        borderRadius: "4px",
+                        padding: "8px 18px",
+                        textDecoration: "none",
+                        letterSpacing: "0.04em",
+                        transition: "all 0.2s",
+                      }}
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                      Download QR Code
+                    </a>
+                  </div>
+                </div>
+
+                {/* Divider */}
+                <div style={{ borderTop: "1px solid var(--border-light)", margin: "28px 0" }} />
+
+                {/* UTR Input */}
+                <div style={{ marginBottom: "24px" }}>
+                  <label style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.8rem", fontWeight: 600, color: "var(--navy)", display: "block", marginBottom: "8px", letterSpacing: "0.04em" }}>
+                    Transaction / UTR Reference Number <span style={{ color: "#e53e3e" }}>*</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={transactionRef}
+                    onChange={(e) => setTransactionRef(e.target.value)}
+                    placeholder="e.g. 512345678901"
+                    style={{
+                      width: "100%",
+                      padding: "12px 16px",
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: "0.9375rem",
+                      border: "1px solid var(--border)",
+                      borderRadius: "4px",
+                      outline: "none",
+                      color: "var(--navy)",
+                      background: "var(--cream)",
+                      boxSizing: "border-box",
+                    }}
+                  />
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", color: "var(--text-light)", marginTop: "6px", lineHeight: 1.5 }}>
+                    After paying, enter the 12-digit UTR number shown in your UPI app. We will verify your payment and confirm your booking within 24 hours.
+                  </p>
+                </div>
+
+                {/* Error */}
+                {errorMsg && (
+                  <div style={{ background: "#fff5f5", border: "1px solid #fc8181", borderRadius: "6px", padding: "12px 16px", marginBottom: "16px", fontFamily: "'Inter', sans-serif", fontSize: "0.875rem", color: "#c53030" }}>
+                    {errorMsg}
+                  </div>
+                )}
+
+                {/* Action Buttons */}
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  <button
+                    onClick={handleUpiConfirm}
+                    disabled={status === "confirming" || !transactionRef.trim()}
+                    style={{
+                      width: "100%",
+                      padding: "14px",
+                      background: transactionRef.trim()
+                        ? "linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%)"
+                        : "var(--border)",
+                      border: "none",
+                      borderRadius: "4px",
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: "0.875rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      color: transactionRef.trim() ? "var(--navy)" : "var(--text-light)",
+                      cursor: transactionRef.trim() ? "pointer" : "not-allowed",
+                      transition: "all 0.3s ease",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "8px",
+                    }}
+                  >
+                    {status === "confirming" ? (
+                      <><span className="spinner" /><span>Confirming Booking...</span></>
+                    ) : (
+                      <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg><span>Confirm Booking</span></>
+                    )}
+                  </button>
+
+                  <button
+                    onClick={() => { setStatus("idle"); setErrorMsg(""); setTransactionRef(""); }}
+                    style={{ background: "none", border: "1px solid var(--border)", borderRadius: "4px", padding: "12px", fontFamily: "'Inter', sans-serif", fontSize: "0.8125rem", color: "var(--text-mid)", cursor: "pointer" }}
+                  >
+                    ← Go Back & Edit Details
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -325,7 +363,7 @@ export default function BookingSection() {
             <div className="reveal" style={{ opacity: 0, transform: "translateY(20px)", transition: "all 0.6s ease" }}>
               {[
                 { step: "01", title: "Fill Your Details", desc: "Choose consultation type (online/in-person), date, and describe your matter." },
-                { step: "02", title: "Secure Your Slot", desc: `Pay ₹${CONSULTATION_FEE} via ${isRazorpayConfigured ? "Razorpay (cards, UPI, net banking)" : "UPI"} to confirm your appointment.` },
+                { step: "02", title: "Secure Your Slot", desc: `Pay ₹${CONSULTATION_FEE} via UPI (GPay, PhonePe, Paytm) to confirm your appointment.` },
                 { step: "03", title: "Receive Confirmation", desc: "We send you a confirmation email with all details and next steps within 24 hours." },
               ].map((item, idx) => (
                 <div key={item.step} style={{ display: "flex", gap: "20px", alignItems: "flex-start", marginBottom: idx < 2 ? "28px" : "0", position: "relative" }}>
@@ -524,9 +562,7 @@ export default function BookingSection() {
                 </button>
 
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", color: "var(--text-light)", textAlign: "center", marginTop: "16px", lineHeight: 1.6 }}>
-                  {isRazorpayConfigured
-                    ? "Secure payment via Razorpay · UPI, Net Banking, Cards accepted"
-                    : "Payment via UPI · GPay, PhonePe, Paytm accepted"} · All information is strictly confidential
+                  Payment via UPI · GPay, PhonePe, Paytm accepted · All information is strictly confidential
                 </p>
               </form>
             )}

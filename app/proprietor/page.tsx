@@ -88,7 +88,7 @@ export default function ProprietorPage() {
         >
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "12px" }}>
             <div style={{ position: "relative", width: "40px", height: "40px" }}>
-              <Image src="/logo.png" alt="Arthajuris" fill style={{ objectFit: "contain" }} />
+              <Image src="/logo_v2.png" alt="Arthajuris" fill style={{ objectFit: "contain" }} />
             </div>
             <div>
               <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.2rem", fontWeight: 700, color: "var(--white)", lineHeight: 1 }}>

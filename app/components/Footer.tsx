@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 export default function Footer() {
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -37,20 +38,20 @@ export default function Footer() {
                 marginBottom: "4px",
               }}
             >
-              Arthajuris
+              Artha Juris
             </div>
             <div
               style={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: "0.65rem",
+                fontSize: "0.6rem",
                 fontWeight: 700,
-                letterSpacing: "0.25em",
+                letterSpacing: "0.2em",
                 textTransform: "uppercase",
                 color: "var(--gold)",
                 marginBottom: "20px",
               }}
             >
-              Proprietary Concern
+              Advocates & Consultants
             </div>
             <p
               style={{
@@ -121,6 +122,22 @@ export default function Footer() {
                 {link.label}
               </button>
             ))}
+            <Link
+              href="/blog"
+              style={{
+                display: "block",
+                fontFamily: "'Inter', sans-serif",
+                fontSize: "0.875rem",
+                color: "rgba(255,255,255,0.45)",
+                padding: "5px 0",
+                textDecoration: "none",
+                transition: "color 0.2s",
+              }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "var(--gold)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.45)"; }}
+            >
+              Legal Blog
+            </Link>
           </div>
 
           {/* Practice Areas */}

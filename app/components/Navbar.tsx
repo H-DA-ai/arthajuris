@@ -35,6 +35,8 @@ export default function Navbar() {
     { href: "#contact", label: "Contact", id: "contact" },
   ];
 
+  const blogLink = { href: "/blog", label: "Blog", id: "blog" };
+
   const scrollTo = (href: string) => {
     const id = href.replace("#", "");
     const el = document.getElementById(id);
@@ -78,7 +80,7 @@ export default function Navbar() {
           >
             <div style={{ position: "relative", width: "44px", height: "44px" }}>
               <Image
-                src="/logo.png"
+                src="/logo_v2.png"
                 alt="ArthajurisLaw Logo"
                 fill
                 style={{ objectFit: "contain" }}
@@ -96,20 +98,20 @@ export default function Navbar() {
                   letterSpacing: "0.02em",
                 }}
               >
-                Arthajuris
+                Artha Juris
               </div>
               <div
                 style={{
                   fontFamily: "'Inter', sans-serif",
-                  fontSize: "0.6rem",
-                  fontWeight: 600,
-                  letterSpacing: "0.25em",
+                  fontSize: "0.55rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.2em",
                   color: "var(--gold)",
                   textTransform: "uppercase",
                   marginTop: "2px",
                 }}
               >
-                Proprietary Concern
+                Advocates & Consultants
               </div>
             </div>
           </button>
@@ -175,6 +177,28 @@ export default function Navbar() {
                 </button>
               </li>
             ))}
+            {/* Blog — external page link */}
+            <li>
+              <Link
+                href={blogLink.href}
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "0.8125rem",
+                  fontWeight: 500,
+                  letterSpacing: "0.06em",
+                  color: "rgba(255,255,255,0.85)",
+                  padding: "8px 14px",
+                  borderRadius: "2px",
+                  textDecoration: "none",
+                  display: "inline-block",
+                  transition: "color 0.25s ease",
+                }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "var(--gold)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.85)"; }}
+              >
+                Blog
+              </Link>
+            </li>
             <li style={{ marginLeft: "12px" }}>
               <button
                 onClick={() => scrollTo("#booking")}
@@ -260,6 +284,24 @@ export default function Navbar() {
                   {link.label}
                 </button>
               ))}
+              {/* Blog mobile link */}
+              <Link
+                href="/blog"
+                onClick={() => setMenuOpen(false)}
+                style={{
+                  display: "block",
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "0.9375rem",
+                  fontWeight: 500,
+                  color: "var(--white)",
+                  padding: "12px 0",
+                  borderBottom: "1px solid rgba(201, 168, 76, 0.08)",
+                  letterSpacing: "0.04em",
+                  textDecoration: "none",
+                }}
+              >
+                Blog
+              </Link>
               <button
                 onClick={() => scrollTo("#booking")}
                 className="btn-primary w-full"

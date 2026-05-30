@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-const FIRM_EMAIL = process.env.NEXT_PUBLIC_FIRM_EMAIL || "arthajurisfirm@gmail.com";
+const FIRM_EMAIL = process.env.NEXT_PUBLIC_FIRM_EMAIL || "arthajuris@gmail.com";
 const GMAIL_USER = process.env.GMAIL_USER;
 const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD;
 const CONSULTATION_FEE = process.env.NEXT_PUBLIC_CONSULTATION_FEE || "500";
 const RAZORPAY_KEY_ID = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "";
-const UPI_ID = process.env.NEXT_PUBLIC_UPI_ID || "arthajurisfirm@gmail.com";
+const UPI_ID = process.env.NEXT_PUBLIC_UPI_ID || "marumayura@okicici";
 
 const getTransporter = () =>
   nodemailer.createTransport({
@@ -29,7 +29,16 @@ export async function POST(req: NextRequest) {
       preferredTime,
       consultationType,
       message,
+      transactionRef,
     } = body;
+
+    // Backend enforcement: transaction reference is mandatory
+    if (!transactionRef || String(transactionRef).trim().length < 6) {
+      return NextResponse.json(
+        { error: "A valid UPI Transaction / UTR reference number is required to confirm your booking." },
+        { status: 400 }
+      );
+    }
 
     if (!GMAIL_USER || !GMAIL_APP_PASSWORD) {
       return NextResponse.json(
@@ -78,6 +87,10 @@ export async function POST(req: NextRequest) {
             <tr style="background: #faf7f0;">
               <td style="padding: 11px 14px; border: 1px solid #e8e0d0; font-weight: 600; color: #0f1c35; font-size: 13px;">Phone Number</td>
               <td style="padding: 11px 14px; border: 1px solid #e8e0d0; color: #4a4a6a; font-size: 14px;">${phone}</td>
+            </tr>
+            <tr>
+              <td style="padding: 11px 14px; border: 1px solid #e8e0d0; font-weight: 600; color: #0f1c35; font-size: 13px; background: #fffbe6;">UPI UTR / Ref No.</td>
+              <td style="padding: 11px 14px; border: 1px solid #e8e0d0; font-size: 14px; background: #fffbe6; color: #b7791f; font-weight: 700; letter-spacing: 0.04em;">${transactionRef}</td>
             </tr>
             <tr>
               <td style="padding: 11px 14px; border: 1px solid #e8e0d0; font-weight: 600; color: #0f1c35; font-size: 13px;">Practice Area</td>

@@ -357,7 +357,7 @@ export default function HeroSection() {
                     ✦ Arthajuris Legal Consultancy
                   </div>
                   <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.125rem", color: "var(--white)", fontWeight: 600, lineHeight: 1.3 }}>
-                    Where Justice Meets<br />Arthajuris
+                    Where Justice Meets<br />Artha Juris
                   </div>
                 </div>
               </div>
@@ -446,15 +446,15 @@ export default function HeroSection() {
               <button onClick={() => setShowFirmPopup(false)} style={{ position: "absolute", top: "16px", right: "16px", background: "rgba(255,255,255,0.08)", border: "none", color: "var(--white)", width: "30px", height: "30px", borderRadius: "50%", cursor: "pointer", fontSize: "0.9rem", display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
               <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "10px" }}>About the Name</div>
               <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.75rem", color: "var(--white)", marginBottom: "0" }}>
-                Artha<em style={{ color: "var(--gold)" }}>juris</em>
+                Artha<em style={{ color: "var(--gold)" }}> Juris</em>
               </h3>
             </div>
             <div style={{ padding: "32px 40px" }}>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9375rem", color: "var(--text-mid)", lineHeight: 1.8, marginBottom: "16px" }}>
-                <strong style={{ color: "var(--navy)" }}>Arthajuris</strong> is where meaning meets the law. Our name reflects our conviction that legal practice is not merely procedural — it is purposeful. We exist to bring clarity, protection, and resolution to all who seek it.
+                <strong style={{ color: "var(--navy)" }}>Artha Juris</strong> is where meaning meets the law. Our name reflects our conviction that legal practice is not merely procedural — it is purposeful. We exist to bring clarity, protection, and resolution to all who seek it.
               </p>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9375rem", color: "var(--text-mid)", lineHeight: 1.8, marginBottom: "28px" }}>
-                Led by <strong style={{ color: "var(--navy)" }}>Adv. Mayura Maru</strong> — Proprietor and founder — with over 22 years of practice at the Bombay High Court, Arthajuris is supported by a skilled team of legal associates bringing deep expertise across civil, corporate, property, and family law.
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.95rem", color: "rgba(15, 28, 53, 0.7)", lineHeight: 1.8 }}>
+                Led by <strong style={{ color: "var(--navy)" }}>Adv. Mayura Maru</strong> — Proprietor and founder — with over 22 years of practice at the Bombay High Court, Artha Juris is supported by a skilled team of legal associates bringing deep expertise across civil, corporate, property, and family law.
               </p>
               <div style={{ display: "flex", gap: "12px" }}>
                 <button onClick={() => { setShowFirmPopup(false); scrollToAbout(); }} className="btn-primary" style={{ fontSize: "0.8125rem" }}>

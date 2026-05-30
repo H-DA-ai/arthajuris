@@ -66,7 +66,7 @@ const team = [
       "Environmental & Cyber Law Advisory",
     ],
     initials: "UK",
-    image: "/uzma.png",
+    image: "/uzma_v2.jpg",
     hasDedicatedPage: false,
   },
   {
@@ -98,7 +98,7 @@ const team = [
       "Metropolitan Magistrate & Session Courts",
     ],
     initials: "PT",
-    image: "/pratap.png",
+    image: "/pratap_v2.jpg",
     hasDedicatedPage: false,
   },
 ];
@@ -106,6 +106,7 @@ const team = [
 export default function PartnersSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
+  const [photoPopup, setPhotoPopup] = useState<{ src: string; name: string; role: string } | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -266,7 +267,7 @@ export default function PartnersSection() {
                         border: "1px solid rgba(201, 168, 76, 0.15)",
                       }}
                     />
-                    {/* Avatar */}
+                    {/* Avatar with hover photo popup */}
                     <div
                       style={{
                         width: "80px",
@@ -279,13 +280,31 @@ export default function PartnersSection() {
                         marginBottom: "20px",
                         overflow: "hidden",
                         backgroundColor: "#111",
+                        cursor: "zoom-in",
+                        transition: "box-shadow 0.3s ease",
+                      }}
+                      title={`View photo of ${member.name}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setPhotoPopup({ src: member.image, name: member.name, role: member.role });
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.currentTarget as HTMLDivElement).style.boxShadow = "0 0 0 3px var(--gold)";
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
                       }}
                     >
                       <Image
                         src={member.image}
                         alt={member.name}
                         fill
-                        style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
+                        style={{
+                          objectFit: "cover",
+                          objectPosition: "top center",
+                          transition: "transform 0.5s ease",
+                          filter: "contrast(1.06) brightness(0.96) saturate(1.12)",
+                        }}
                         className="advocate-img"
                       />
                     </div>
@@ -682,10 +701,96 @@ export default function PartnersSection() {
         </div>
       )}
 
+      {/* Full Photo Lightbox */}
+      {photoPopup && (
+        <div
+          onClick={() => setPhotoPopup(null)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 9999,
+            background: "rgba(5, 10, 22, 0.9)",
+            backdropFilter: "blur(12px)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "20px",
+            animation: "fadeInOverlay 0.25s ease",
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              position: "relative",
+              background: "var(--navy)",
+              borderRadius: "12px",
+              overflow: "hidden",
+              border: "1px solid rgba(201,168,76,0.3)",
+              boxShadow: "0 40px 100px rgba(0,0,0,0.7)",
+              maxWidth: "420px",
+              width: "100%",
+              animation: "scaleInPopup 0.3s cubic-bezier(0.16,1,0.3,1)",
+            }}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setPhotoPopup(null)}
+              style={{
+                position: "absolute",
+                top: "14px",
+                right: "14px",
+                zIndex: 10,
+                background: "rgba(5,10,22,0.6)",
+                border: "1px solid rgba(255,255,255,0.15)",
+                color: "#fff",
+                width: "34px",
+                height: "34px",
+                borderRadius: "50%",
+                cursor: "pointer",
+                fontSize: "1rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              ✕
+            </button>
+
+            {/* Portrait */}
+            <div style={{ position: "relative", width: "100%", paddingTop: "120%" }}>
+              <Image
+                src={photoPopup.src}
+                alt={photoPopup.name}
+                fill
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "top center",
+                  filter: "contrast(1.06) brightness(0.96) saturate(1.12)",
+                }}
+              />
+            </div>
+
+            {/* Name bar */}
+            <div style={{
+              padding: "20px 24px",
+              background: "linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%)",
+              borderTop: "1px solid rgba(201,168,76,0.2)",
+            }}>
+              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.25rem", color: "#fff", fontWeight: 700 }}>
+                {photoPopup.name}
+              </div>
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gold)", marginTop: "4px" }}>
+                {photoPopup.role} · Arthajuris
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       <style>{`
-        .advocate-img:hover {
-          transform: scale(1.1);
-        }
+        .advocate-img:hover { transform: scale(1.08); }
+        @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes scaleInPopup { from { opacity: 0; transform: scale(0.88); } to { opacity: 1; transform: scale(1); } }
       `}</style>
     </>
   );
