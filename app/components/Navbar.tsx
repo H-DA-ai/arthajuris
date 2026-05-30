@@ -2,11 +2,14 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +42,11 @@ export default function Navbar() {
 
   const scrollTo = (href: string) => {
     const id = href.replace("#", "");
+    if (pathname !== "/") {
+      router.push(`/#${id}`);
+      setMenuOpen(false);
+      return;
+    }
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
@@ -78,7 +86,7 @@ export default function Navbar() {
               padding: 0,
             }}
           >
-            <div style={{ position: "relative", width: "44px", height: "44px" }}>
+            <div style={{ position: "relative", width: "64px", height: "64px" }}>
               <Image
                 src="/logo_v2.png"
                 alt="ArthajurisLaw Logo"
@@ -91,7 +99,7 @@ export default function Navbar() {
               <div
                 style={{
                   fontFamily: "'Playfair Display', serif",
-                  fontSize: "1.25rem",
+                  fontSize: "1.4rem",
                   fontWeight: 700,
                   color: "var(--white)",
                   lineHeight: 1,
@@ -103,12 +111,12 @@ export default function Navbar() {
               <div
                 style={{
                   fontFamily: "'Inter', sans-serif",
-                  fontSize: "0.55rem",
+                  fontSize: "0.6rem",
                   fontWeight: 700,
                   letterSpacing: "0.2em",
                   color: "var(--gold)",
                   textTransform: "uppercase",
-                  marginTop: "2px",
+                  marginTop: "3px",
                 }}
               >
                 Advocates & Consultants

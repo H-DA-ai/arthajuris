@@ -87,15 +87,15 @@ export default function ProprietorPage() {
           style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
         >
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "12px" }}>
-            <div style={{ position: "relative", width: "40px", height: "40px" }}>
+            <div style={{ position: "relative", width: "70px", height: "70px" }}>
               <Image src="/logo_v2.png" alt="Arthajuris" fill style={{ objectFit: "contain" }} />
             </div>
             <div>
-              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.2rem", fontWeight: 700, color: "var(--white)", lineHeight: 1 }}>
-                Arthajuris
+              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.4rem", fontWeight: 700, color: "var(--white)", lineHeight: 1 }}>
+                Artha Juris
               </div>
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.25em", color: "var(--gold)", textTransform: "uppercase", marginTop: "2px" }}>
-                Proprietary Concern
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.2em", color: "var(--gold)", textTransform: "uppercase", marginTop: "3px" }}>
+                Advocates & Consultants
               </div>
             </div>
           </Link>
