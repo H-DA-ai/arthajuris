@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 const FIRM_EMAIL = process.env.NEXT_PUBLIC_FIRM_EMAIL || "arthajuris@gmail.com";
 const GMAIL_USER = process.env.GMAIL_USER;
 const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD;
-const CONSULTATION_FEE = process.env.NEXT_PUBLIC_CONSULTATION_FEE || "500";
+const CONSULTATION_FEE = process.env.NEXT_PUBLIC_CONSULTATION_FEE || "3500";
 const RAZORPAY_KEY_ID = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "";
 const UPI_ID = process.env.NEXT_PUBLIC_UPI_ID || "marumayura@okicici";
 
@@ -120,8 +120,8 @@ export async function POST(req: NextRequest) {
           <div style="padding: 16px 20px; background: #fff8e8; border: 1px solid #c9a84c; border-radius: 4px;">
             <div style="font-size: 12px; font-weight: 700; color: #a07c2d; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">⚠ Pending Payment Confirmation</div>
             <p style="color: #4a4a6a; font-size: 13px; line-height: 1.6; margin: 0;">
-              This appointment is <strong>pending</strong> until the client completes the consultation fee payment of <strong>₹${CONSULTATION_FEE}</strong>. 
-              The client has been sent instructions. Please confirm once payment is received.
+              Please check if the payment of <strong>₹${CONSULTATION_FEE}</strong> has been received via the provided UTR number. This appointment remains <strong>pending</strong> until the payment is confirmed. 
+              You must call the client to inform them of this pending status, and if their requested slot is unavailable, please assist them in rescheduling.
             </p>
           </div>
         </div>
@@ -159,29 +159,20 @@ export async function POST(req: NextRequest) {
           </div>
 
           <div style="background: #fff8e8; border: 1px solid #c9a84c; border-radius: 4px; padding: 24px; margin-bottom: 28px;">
-            <div style="font-size: 12px; font-weight: 700; color: #a07c2d; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">✦ Complete Your Booking — Payment Required</div>
+            <div style="font-size: 12px; font-weight: 700; color: #a07c2d; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">✦ Pending Payment & Slot Confirmation</div>
             <p style="color: #4a4a6a; font-size: 14px; line-height: 1.7; margin-bottom: 16px;">
-              To confirm and secure your consultation slot, a nominal fee of <strong style="color: #0f1c35; font-size: 16px;">₹${CONSULTATION_FEE}</strong> is required. This will be credited against your legal services.
+              To confirm and secure your consultation slot, the fee of <strong style="color: #0f1c35; font-size: 16px;">₹${CONSULTATION_FEE}</strong> must be received.
             </p>
             <p style="color: #4a4a6a; font-size: 14px; line-height: 1.7; margin-bottom: 20px;">
-              Please complete your payment using one of the options below:
+              Please ensure your payment is completed via UPI using the QR code on our website or the details below:
             </p>
             
-            <div style="border-top: 1px solid #e8d5a0; padding-top: 16px; margin-bottom: 16px;">
-              <div style="font-weight: 700; color: #0f1c35; font-size: 13px; margin-bottom: 8px;">Option 1 — Online Payment (Razorpay)</div>
-              <p style="color: #4a4a6a; font-size: 13px; line-height: 1.6; margin-bottom: 10px;">
-                Visit our website and click "Pay Consultation Fee" on the booking page, or use this link:
-              </p>
-              <a href="https://arthajuris.com/booking" style="display: inline-block; background: #c9a84c; color: #0f1c35; font-weight: 700; font-size: 13px; padding: 10px 22px; text-decoration: none; border-radius: 2px; letter-spacing: 0.08em; text-transform: uppercase;">Pay Now →</a>
-            </div>
-            
             <div style="border-top: 1px solid #e8d5a0; padding-top: 16px;">
-              <div style="font-weight: 700; color: #0f1c35; font-size: 13px; margin-bottom: 8px;">Option 2 — UPI / Bank Transfer</div>
               <p style="color: #4a4a6a; font-size: 13px; line-height: 1.6; margin: 0;">
                 UPI ID: <strong style="color: #0f1c35; font-size: 14px;">${UPI_ID}</strong><br>
                 Amount: <strong>₹${CONSULTATION_FEE}</strong><br>
                 Reference: Your name + "${formattedDate}"<br><br>
-                <em style="color: #8888aa; font-size: 12px;">After payment, please reply to this email with your payment screenshot or transaction ID so we can confirm your appointment.</em>
+                <em style="color: #8888aa; font-size: 12px;">Note: Your requested slot is subject to availability. Our team will verify your payment via the UTR number provided and contact you to confirm the appointment or assist in rescheduling if the slot is full.</em>
               </p>
             </div>
           </div>
