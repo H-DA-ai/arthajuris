@@ -4,6 +4,7 @@ import AboutSection from "./components/AboutSection";
 import PartnersSection from "./components/PartnersSection";
 import PracticeSection from "./components/PracticeSection";
 import BookingSection from "./components/BookingSection";
+import BlogPreviewSection from "./components/BlogPreviewSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import DisclaimerModal from "./components/DisclaimerModal";
@@ -19,6 +20,7 @@ export default function Home() {
         <PartnersSection />
         <PracticeSection />
         <BookingSection />
+        <BlogPreviewSection />
         <ContactSection />
       </main>
       <Footer />
