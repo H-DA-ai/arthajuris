@@ -6,10 +6,12 @@ import PracticeSection from "./components/PracticeSection";
 import BookingSection from "./components/BookingSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import DisclaimerModal from "./components/DisclaimerModal";
 
 export default function Home() {
   return (
     <>
+      <DisclaimerModal />
       <Navbar />
       <main>
         <HeroSection />

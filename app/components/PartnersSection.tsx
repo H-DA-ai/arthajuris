@@ -10,10 +10,10 @@ const team = [
     role: "Proprietor",
     enrolment: "Enrolment No. MAH/2976/2002",
     highCourt: "High Court O.S. Reg. No. 15412",
-    experience: "22+ Years",
+    experience: "25+ Years",
     education: [
-      "BSc — Wilson College, Mumbai University (1998)",
       "LLB — Kishanchand Chhellaram College, Mumbai University (2002)",
+      "BSc — Wilson College, Mumbai University (1998)",
     ],
     expertise: [
       "Civil Litigation",
@@ -23,7 +23,7 @@ const team = [
       "Criminal Law",
       "Family Law",
     ],
-    bio: "With over 22 years of sustained practice at the Bombay High Court and across all courts in Maharashtra, Adv. Mayura Maru is the founding Proprietor of Arthajuris. Her practice spans complex civil, corporate, property, banking, and family law — representing corporate entities, financial institutions, and individuals in high-stakes matters with equal skill and dedication.",
+    bio: "Advocate Mayura Navnit Maru is a senior practising advocate with over 25 years of independent legal practice, primarily before the Bombay High Court. Enrolled with the Bar Council of Maharashtra & Goa in 2002, she is the founding Proprietor of Artha Juris and is widely recognised for her landmark PIL (No. 138 of 2012) challenging illegal constructions across Navi Mumbai, resulting in landmark orders by a bench led by Justice A.S. Oka.",
     practiceHighlights: [
       "Bombay High Court (Appellate & Original Side)",
       "NCLT — Insolvency & Winding Up Petitions",
@@ -176,7 +176,7 @@ export default function PartnersSection() {
                 margin: "0 auto",
               }}
             >
-              A Proprietary Concern led by Adv. Mayura Maru, supported by experienced associates
+              A team of expert and experienced lawyers to help you with every aspect of your legal needs
               — bringing complementary expertise across all major areas of law in Maharashtra.
             </p>
           </div>
@@ -567,7 +567,7 @@ export default function PartnersSection() {
                       color: "var(--gold)",
                     }}
                   >
-                    {selected.role} · Arthajuris Legal Consultancy
+                    {selected.role} · Artha Juris Legal Consultancy
                   </div>
                   <div
                     style={{
@@ -780,7 +780,7 @@ export default function PartnersSection() {
                 {photoPopup.name}
               </div>
               <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gold)", marginTop: "4px" }}>
-                {photoPopup.role} · Arthajuris
+                {photoPopup.role} · Artha Juris
               </div>
             </div>
           </div>

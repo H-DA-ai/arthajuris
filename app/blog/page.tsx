@@ -97,7 +97,7 @@ export default function BlogPage() {
                 marginBottom: "16px",
               }}
             >
-              ✦ Arthajuris Legal Blog
+              ✦ Artha Juris Legal Blog
             </div>
             <h1
               style={{
@@ -122,7 +122,7 @@ export default function BlogPage() {
               }}
             >
               Stay informed with expert analysis on new laws, landmark judgements, case studies,
-              and legal tips from the advocates at Arthajuris.
+              and legal tips from the advocates at Artha Juris.
             </p>
           </div>
         </div>

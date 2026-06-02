@@ -3,29 +3,29 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Adv. Mayura Maru — Proprietor | Arthajuris Legal Consultancy",
+  title: "Adv. Mayura Maru — Proprietor | Artha Juris Legal Consultancy",
   description:
-    "Adv. Mayura Maru is the Proprietor of Arthajuris Legal Consultancy with over 22 years of practice at the Bombay High Court and courts across Maharashtra in Civil, Corporate, Property, Banking, and Family Law.",
+    "Adv. Mayura Navnit Maru is the Proprietor of Artha Juris Legal Consultancy with over 25 years of practice at the Bombay High Court and courts across Maharashtra. Known for landmark PIL No. 138 of 2012 on illegal constructions in Navi Mumbai.",
 };
-
-
 
 const practiceDetails = [
   {
-    area: "Business Law",
-    icon: "🏛️",
+    area: "Corporate & Business Law",
+    icon: "🏗️",
     points: [
-      "Corporate matters and business contracts",
+      "Corporate matters and complex business contracts",
       "Arbitration and alternative dispute resolution",
       "Winding up petitions before NCLT",
       "Drafting and filing proceedings under the Insolvency and Bankruptcy Code (IBC)",
       "Arguing NCLT matters and obtaining orders",
       "Debt Recovery Tribunal (DRT) and DRAT proceedings",
+      "Corporate governance compliance and advisory",
+      "Investor protection and SEBI-related advisory",
     ],
   },
   {
-    area: "Property Law",
-    icon: "🏘️",
+    area: "Real Estate & Property Law",
+    icon: "🏨️",
     points: [
       "Title search reports and comprehensive property reviews",
       "All aspects of residential property transfers",
@@ -36,10 +36,12 @@ const practiceDetails = [
       "Real estate and property cases for trial",
       "Commercial lease and access agreement drafting",
       "Review of loan documents and financial agreements",
+      "Maharashtra Ownership Flats Act (MOFA) matters",
+      "MRTP Act — development plan violations and regularization challenges",
     ],
   },
   {
-    area: "Civil Law",
+    area: "Civil Litigation",
     icon: "⚖️",
     points: [
       "Consumer Forum cases",
@@ -49,7 +51,45 @@ const practiceDetails = [
       "Medical negligence cases",
       "Defamation suits",
       "Civil suits across courts",
-      "Testamentary matters",
+      "Testamentary matters (Probate & Letters of Administration)",
+      "Succession and letters-of-administration proceedings",
+      "Miscellaneous civil applications in Thane and Mumbai courts",
+    ],
+  },
+  {
+    area: "Family Law",
+    icon: "👨‍👩‍👧",
+    points: [
+      "Divorce and matrimonial disputes",
+      "Domestic violence matters",
+      "Child custody and guardianship",
+      "Maintenance and alimony proceedings",
+      "Property-related family disputes",
+      "Family court litigation across Mumbai & Maharashtra",
+    ],
+  },
+  {
+    area: "Banking & Finance",
+    icon: "🏦",
+    points: [
+      "Debt recovery and banking tribunal matters",
+      "SARFAESI Act proceedings",
+      "NPA resolution and enforcement",
+      "Loan documentation review",
+      "Financial disputes and recovery suits",
+      "Matters before Debts Recovery Tribunal (DRT), Mumbai",
+    ],
+  },
+  {
+    area: "Public Interest Litigation",
+    icon: "📌",
+    points: [
+      "Landmark PIL No. 138 of 2012 — Bombay High Court",
+      "Challenged illegal/unauthorized constructions in Navi Mumbai and Trans-Thane Creek industrial areas",
+      "Resulted in bench-led orders by Justice A.S. Oka",
+      "Forced CIDCO, NMMC, and MIDC to identify tens of thousands of illegal structures",
+      "Established \"zero-tolerance\" policy toward unauthorized development",
+      "Landmark precedent on MRTP Act and development control regulations",
     ],
   },
 ];
@@ -145,14 +185,14 @@ export default function ProprietorPage() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 300px", gap: "60px", alignItems: "center" }} className="proprietor-hero-grid">
             <div>
               <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 800, color: "var(--white)", lineHeight: 1.1, marginBottom: "16px" }}>
-                Adv. Mayura Maru
+                Adv. Mayura Navnit Maru
               </h1>
               <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "24px" }}>
-                BSc. LLB · Proprietor, Arthajuris · 22+ Years Practice
+                BSc. LLB · Proprietor, Artha Juris · 25+ Years Practice
               </div>
               <div style={{ width: "50px", height: "2px", background: "linear-gradient(90deg, var(--gold), var(--gold-light))", marginBottom: "28px" }} />
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.0625rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.8, maxWidth: "600px", marginBottom: "32px" }}>
-                With over 22 years of sustained and distinguished practice at the Bombay High Court and courts across Maharashtra, Adv. Mayura Maru is the founding Proprietor of Arthajuris. Her career is defined by an unwavering commitment to her clients, a formidable courtroom presence, and the rare ability to navigate the most complex legal terrain with clarity and conviction.
+                Advocate Mayura Navnit Maru is a senior practising advocate with over 25 years of independent legal practice, primarily before the Bombay High Court. Enrolled with the Bar Council of Maharashtra &amp; Goa in 2002, she is the founding Proprietor of Artha Juris. She is widely recognised for her landmark PIL (No. 138 of 2012) that forced Maharashtra planning authorities to adopt a zero-tolerance policy against unauthorized constructions.
               </p>
               <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
                 <div style={{ padding: "10px 20px", background: "rgba(201, 168, 76, 0.1)", border: "1px solid rgba(201, 168, 76, 0.3)", borderRadius: "2px" }}>
@@ -211,13 +251,16 @@ export default function ProprietorPage() {
               <div style={{ width: "40px", height: "2px", background: "var(--gold)", marginBottom: "24px" }} />
               <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9375rem", color: "var(--text-mid)", lineHeight: 1.9, display: "flex", flexDirection: "column", gap: "16px" }}>
                 <p>
-                  Adv. Mayura Maru has spent over two decades at the intersection of law and real-world impact. Her practice spans the Bombay High Court and all district courts and tribunals in Maharashtra — including Mumbai, Navi Mumbai, Panvel, Thane, Khalapur, Khopoli, and Alibaug.
+                  Advocate Mayura Navnit Maru has spent over two and a half decades at the intersection of law and real-world impact. Her practice spans the Bombay High Court, District Courts, and all key tribunals across Maharashtra — including Mumbai, Navi Mumbai, Panvel, Thane, Khalapur, Khopoli, and Alibaug.
                 </p>
                 <p>
-                  She has represented a wide spectrum of clients — from corporate entities and financial institutions to individuals navigating complex personal legal challenges. Her ability to handle an array of litigation and legal matters, from complex commercial disputes to sensitive family matters, reflects the breadth and depth of her expertise.
+                  She handles independent litigation, legal consultancy, and advisory services across corporate, civil, real estate, banking, and family law. She has represented a wide spectrum of clients — from corporate entities and financial institutions to individuals navigating complex personal legal challenges.
                 </p>
                 <p>
-                  A highly organised, dedicated, and strategic professional, Adv. Maru is known for her ability to set effective priorities, manage multiple assignments under pressure, and deliver consistently strong outcomes for her clients.
+                  A highly organised, dedicated, and strategic professional, Adv. Maru is known for her formidable courtroom presence, meticulous legal research, and the ability to handle the most complex litigation with clarity and conviction.
+                </p>
+                <p>
+                  Languages spoken: <strong style={{ color: "var(--navy)" }}>English, Hindi, Gujarati, and Marathi</strong>
                 </p>
               </div>
 
@@ -253,6 +296,24 @@ export default function ProprietorPage() {
                     </div>
                   ))}
                 </div>
+
+                {/* Additional Info */}
+                <div style={{ marginTop: "24px", padding: "20px", background: "rgba(201, 168, 76, 0.05)", border: "1px solid rgba(201,168,76,0.2)", borderRadius: "4px" }}>
+                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "12px" }}>Additional Details</div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                    {[
+                      { label: "Bar Enrolment", value: "Bar Council of Maharashtra & Goa, 2002" },
+                      { label: "High Court Reg.", value: "Bombay High Court O.S. No. 15412" },
+                      { label: "Office", value: "Fort, Mumbai, Maharashtra" },
+                      { label: "Languages", value: "English, Hindi, Gujarati, Marathi" },
+                    ].map((item) => (
+                      <div key={item.label} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
+                        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.8rem", color: "var(--text-light)", fontWeight: 600, minWidth: "120px", flexShrink: 0 }}>{item.label}:</span>
+                        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.8rem", color: "var(--text-mid)" }}>{item.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -285,7 +346,7 @@ export default function ProprietorPage() {
               <div style={{ background: "linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%)", borderRadius: "8px", padding: "32px", position: "relative", overflow: "hidden" }}>
                 <div style={{ position: "absolute", top: "-30px", right: "-30px", width: "120px", height: "120px", borderRadius: "50%", border: "1px solid rgba(201,168,76,0.1)" }} />
                 <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "20px" }}>
-                  ✦ Court Presence
+                  ❖ Court Presence
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                   {[
@@ -295,7 +356,9 @@ export default function ProprietorPage() {
                     "RERA, CIDCO, MIDC & SRA Matters",
                     "Consumer Forum & Civil Courts",
                     "Criminal Courts across Maharashtra",
-                    "District Courts: Panvel, Thane, Alibaug, Khopoli",
+                    "Debts Recovery Tribunal (DRT), Mumbai",
+                    "Family Courts, Mumbai",
+                    "District Courts: Mumbai, Raigad, Panvel, Thane, Alibaug, Khopoli",
                   ].map((court) => (
                     <div key={court} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                       <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "var(--gold)", display: "inline-block", flexShrink: 0 }} />
@@ -303,6 +366,22 @@ export default function ProprietorPage() {
                     </div>
                   ))}
                 </div>
+              </div>
+
+              {/* Notable PIL */}
+              <div style={{ marginTop: "24px", background: "linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.03) 100%)", borderRadius: "8px", padding: "28px", border: "1px solid rgba(201,168,76,0.2)" }}>
+                <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "14px" }}>
+                  ❖ Notable PIL
+                </div>
+                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1rem", color: "var(--navy)", fontWeight: 600, marginBottom: "10px" }}>
+                  Mayura Maru v. State of Maharashtra
+                </div>
+                <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.8rem", color: "var(--gold)", fontWeight: 600, marginBottom: "12px" }}>
+                  PIL No. 138 of 2012 · Bombay High Court
+                </div>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.85rem", color: "var(--text-mid)", lineHeight: 1.75, margin: 0 }}>
+                  Challenged illegal and unauthorized constructions in Navi Mumbai and Trans-Thane Creek industrial areas. The bench led by Justice A.S. Oka ordered CIDCO, NMMC, and MIDC to identify tens of thousands of illegal structures and adopt a strict zero-tolerance policy against unauthorized development, establishing a landmark precedent under the MRTP Act.
+                </p>
               </div>
             </div>
           </div>

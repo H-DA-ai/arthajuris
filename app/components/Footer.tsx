@@ -63,7 +63,7 @@ export default function Footer() {
                 maxWidth: "280px",
               }}
             >
-              A Mumbai-based legal consultancy (Proprietary Concern) led by Adv. Mayura Maru. Serving clients across Maharashtra with integrity, diligence, and excellence.
+              A Mumbai-based legal consultancy (Proprietary Concern) led by Adv. Mayura Maru — a team of expert and experienced lawyers to help you with every aspect of your legal needs across Maharashtra.
             </p>
             <div
               style={{
@@ -242,7 +242,7 @@ export default function Footer() {
               color: "rgba(255,255,255,0.25)",
             }}
           >
-            © {year} Arthajuris Legal Consultancy. All rights reserved.
+            © {year} Artha Juris Legal Consultancy. All rights reserved.
           </div>
           <div
             style={{

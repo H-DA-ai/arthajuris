@@ -129,7 +129,7 @@ export default function AboutSection() {
                 transition: "all 0.6s ease",
               }}
             >
-              At Arthajuris, we believe that exceptional legal counsel requires more than just profound knowledge of the law — it demands a deep, strategic understanding of our clients' unique challenges. Our practice is built on the conviction that every client deserves a trusted partner who approaches their case with meticulous preparation and unwavering integrity.
+              At Artha Juris, we believe that exceptional legal counsel requires more than just profound knowledge of the law — it demands a deep, strategic understanding of our clients' unique challenges. Our practice is built on the conviction that every client deserves a trusted partner who approaches their case with meticulous preparation and unwavering integrity.
             </p>
             <p
               className="reveal"
