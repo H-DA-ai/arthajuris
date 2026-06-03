@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
+import DisclaimerModal from "./components/DisclaimerModal";
 
 export const metadata: Metadata = {
   title: "Artha Juris – Premier Legal Consultancy | Mumbai, Maharashtra",
@@ -22,7 +24,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <DisclaimerModal />
+        {children}
+      </body>
     </html>
   );
 }
