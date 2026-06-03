@@ -99,9 +99,9 @@ export default function DisclaimerModal() {
 
             <ul style={{ paddingLeft: "40px", margin: "0 0 40px 0", display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                "The user independently looking to gain more information about Arthajuris, its practice areas and its attorneys, for his/her own information and use.",
+                "The user independently looking to gain more information about Artha Juris, its practice areas and its attorneys, for his/her own information and use.",
                 "None of the information contained on the website is in the nature of a legal opinion or otherwise amounts to any legal advice.",
-                "No advertisements, personal communications, solicitations, invitations, or other forms of inducement of any kind have been made by or on behalf of Arthajuris or any of its members to solicit work through this website"
+                "No advertisements, personal communications, solicitations, invitations, or other forms of inducement of any kind have been made by or on behalf of Artha Juris or any of its members to solicit work through this website"
               ].map((point, i) => (
                 <li
                   key={i}
