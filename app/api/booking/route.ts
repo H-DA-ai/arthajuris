@@ -2,18 +2,20 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 const FIRM_EMAIL = process.env.NEXT_PUBLIC_FIRM_EMAIL || "firm@arthajuris.com";
-const GMAIL_USER = process.env.GMAIL_USER;
-const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD;
+const EMAIL_USER = process.env.EMAIL_USER;
+const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD;
 const CONSULTATION_FEE = process.env.NEXT_PUBLIC_CONSULTATION_FEE || "3500";
 const RAZORPAY_KEY_ID = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "";
 const UPI_ID = process.env.NEXT_PUBLIC_UPI_ID || "marumayura@okicici";
 
 const getTransporter = () =>
   nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.titan.email",
+    port: 465,
+    secure: true,
     auth: {
-      user: GMAIL_USER,
-      pass: GMAIL_APP_PASSWORD,
+      user: EMAIL_USER,
+      pass: EMAIL_PASSWORD,
     },
   });
 
@@ -40,11 +42,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (!GMAIL_USER || !GMAIL_APP_PASSWORD) {
+    if (!EMAIL_USER || !EMAIL_PASSWORD) {
       return NextResponse.json(
         {
           error:
-            "Email configuration missing. Please set GMAIL_USER and GMAIL_APP_PASSWORD in .env.local",
+            "Email configuration missing. Please set EMAIL_USER and EMAIL_PASSWORD in .env.local",
         },
         { status: 500 }
       );
@@ -201,7 +203,7 @@ export async function POST(req: NextRequest) {
 
     // Send to firm
     await transporter.sendMail({
-      from: `"Arthajuris Website" <${GMAIL_USER}>`,
+      from: `"Arthajuris Website" <${EMAIL_USER}>`,
       to: FIRM_EMAIL,
       subject: `New Consultation Request — ${fullName} (${practiceArea})`,
       html: firmEmailHtml,
@@ -210,7 +212,7 @@ export async function POST(req: NextRequest) {
 
     // Send to client
     await transporter.sendMail({
-      from: `"Arthajuris Legal Consultancy" <${GMAIL_USER}>`,
+      from: `"Arthajuris Legal Consultancy" <${EMAIL_USER}>`,
       to: email,
       subject: `Your Consultation Request — Arthajuris | Payment Pending`,
       html: clientEmailHtml,
