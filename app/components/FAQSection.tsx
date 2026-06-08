@@ -69,7 +69,7 @@ export default function FAQSection() {
                 borderRadius: "6px",
                 background: "var(--cream)",
                 overflow: "hidden",
-                transitionDelay: \`\${index * 0.1}s\`,
+                transitionDelay: `${index * 0.1}s`,
               }}
             >
               <button
