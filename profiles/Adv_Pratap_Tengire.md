@@ -1,4 +1,4 @@
-# Profile: Adv. Pratap Tengire
+# Profile: Adv. Pratap Temgire
 
 **Role:** Associate
 **Experience:** 3+ Years
@@ -6,7 +6,7 @@
 **Additional Qualifications:** Bar Council of India (2023) | CLAT PG AIR 242
 
 ## Bio
-Adv. Pratap Tengire is a dynamic Associate with a strong academic foundation from Maharashtra National Law University (MNLU). He has appeared before the Bombay High Court, DRT, DRAT, and district courts, with core expertise in banking litigation, SARFAESI proceedings, NI Act matters, and corporate law. A national moot court champion with a rigorous approach to research and drafting.
+Adv. Pratap Temgire is a dynamic Associate with a strong academic foundation from Maharashtra National Law University (MNLU). He has appeared before the Bombay High Court, DRT, DRAT, and district courts, with core expertise in banking litigation, SARFAESI proceedings, NI Act matters, and corporate law. A national moot court champion with a rigorous approach to research and drafting.
 
 ## Education
 - LL.M. — Maharashtra National Law University (MNLU), 2025 (72.01%)

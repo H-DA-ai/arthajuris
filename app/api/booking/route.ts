@@ -190,7 +190,7 @@ export async function POST(req: NextRequest) {
           <div style="font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.8;">
             Office No. 4/B, 4th Floor, Mahavir Chambers, 1/5 Banaji Street, Fort, Mumbai – 400 001<br>
             Email: ${FIRM_EMAIL}<br>
-            Adv. Mayura Maru — Proprietor | Enrolment No. MAH/2976/2002
+            Adv. Mayura Maru — Founder | Enrolment No. MAH/2976/2002
           </div>
         </div>
         <div style="padding: 16px 36px; background: #f0ebe0; font-size: 11px; color: #8888aa; text-align: center;">

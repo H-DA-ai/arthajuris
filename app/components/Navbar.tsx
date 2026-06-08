@@ -32,7 +32,7 @@ export default function Navbar() {
   const navLinks = [
     { href: "#home", label: "Home", id: "home" },
     { href: "#about", label: "About", id: "about" },
-    { href: "#partners", label: "Our Team", id: "partners" },
+    { href: "#partners", label: "Expert Lawyers", id: "partners" },
     { href: "#practice", label: "Practice Areas", id: "practice" },
     { href: "#booking", label: "Consultation", id: "booking" },
     { href: "#contact", label: "Contact", id: "contact" },
@@ -88,7 +88,7 @@ export default function Navbar() {
           >
             <div style={{ position: "relative", width: "64px", height: "64px" }}>
               <Image
-                src="/logo_v2.png"
+                src="/new_logo.jpg"
                 alt="ArthajurisLaw Logo"
                 fill
                 style={{ objectFit: "contain" }}

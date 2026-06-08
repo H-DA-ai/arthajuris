@@ -7,7 +7,7 @@ const team = [
   {
     id: "mayura-maru",
     name: "Adv. Mayura Maru",
-    role: "Proprietor",
+    role: "Founder",
     enrolment: "Enrolment No. MAH/2976/2002",
     highCourt: "High Court O.S. Reg. No. 15412",
     experience: "25+ Years",
@@ -16,25 +16,21 @@ const team = [
       "BSc — Wilson College, Mumbai University (1998)",
     ],
     expertise: [
-      "Civil Litigation",
-      "Corporate & Business Law",
-      "Property & Real Estate Law",
-      "Banking & DRT/DRAT",
-      "Criminal Law",
-      "Family Law",
+      "Corporate & Commercial Law",
+      "Real Estate & Property Law",
+      "Civil & Family Law",
+      "Banking & Finance",
     ],
-    bio: "Advocate Mayura Navnit Maru is a senior practising advocate with over 25 years of independent legal practice, primarily before the Bombay High Court. Enrolled with the Bar Council of Maharashtra & Goa in 2002, she is the founding Proprietor of Artha Juris and is widely recognised for her landmark PIL (No. 138 of 2012) challenging illegal constructions across Navi Mumbai, resulting in landmark orders by a bench led by Justice A.S. Oka.",
+    bio: "Advocate Mayura Navnit Maru is a senior legal practitioner based in Mumbai, with over 25 years of independent practice before the Bombay High Court and various courts/tribunals across Pan India. Enrolled with the Bar Council of Maharashtra & Goa in 2002, she is proficient in English, Hindi, Gujarati, and Marathi.",
     practiceHighlights: [
-      "Bombay High Court (Appellate & Original Side)",
-      "NCLT — Insolvency & Winding Up Petitions",
-      "DRT & DRAT Proceedings",
-      "RERA, CIDCO, MIDC, SRA Matters",
-      "Criminal, Consumer & Civil Courts across Maharashtra",
+      "Landmark PIL (PIL No. 138 of 2012) – Mayura Maru v. State of Maharashtra before the Bombay High Court, challenging unauthorized constructions in Navi Mumbai and Trans-Thane Creek. The case led to strict judicial directions enforcing a 'zero-tolerance' policy against illegal development, compelling authorities like CIDCO, NMMC, and MIDC to act against thousands of unauthorized structures.",
+      "Advocacy for investor protection, including representations to SEBI on unregulated online investment platforms.",
+      "Bombay High Court, Debts Recovery Tribunal (DRT), Family Courts, District Courts in Mumbai and Raigad."
     ],
     initials: "MM",
-    image: "/mayura.png",
+    image: "/new_mayura.jpg",
     hasDedicatedPage: true,
-    dedicatedPageUrl: "/proprietor",
+    dedicatedPageUrl: "/founder",
   },
   {
     id: "uzma-khan",
@@ -53,25 +49,25 @@ const team = [
       "Real Estate & Property Law",
       "Title Search & Due Diligence",
       "Banking Legal Documentation",
-      "Environmental Law",
+      "Business Development & Client Management",
       "IGR & Property Registration",
       "Legal Compliance & Audits",
     ],
-    bio: "Adv. Uzma Khan is the firm's Senior Associate, specialising in real estate law, banking documentation, and property due diligence. She leads the preparation of title search reports, APF reports, and complex property transactions. Her multidisciplinary qualifications in Environmental Law, Cyber Law, and Education bring an exceptionally broad perspective to client advisory.",
+    bio: "Adv. Uzma Khan is the firm's Senior Associate, specialising in real estate law, banking documentation, and property due diligence. With extensive experience at Xpress Legal and AAN Legal & Associates, she has successfully led the preparation of retail title search reports, APF reports, and complex property due diligence for major financial institutions including Punjab National Bank, Bank of India, and CANFIN Homes. She is highly skilled in conducting advanced property due diligence, examining encumbrances, scrutinizing sale deeds, and managing mutation processes.",
     practiceHighlights: [
-      "Title Search & APF Reports",
-      "RERA & Property Documentation",
-      "Bank Empanelment & Loan Due Diligence",
-      "IGR — E-filing, CTC, Property Searches",
-      "Environmental & Cyber Law Advisory",
+      "Led preparation of Retail Title Search Reports and APF Reports.",
+      "Facilitated empanelment of major financial institutions for legal services.",
+      "Extensive verification of 7/12 Extract, Property Card, and Village Form records.",
+      "Conducted legal audits, IGR e-filing, and title chains analysis.",
+      "Managed end-to-end client communication and business development for banking clients.",
     ],
     initials: "UK",
     image: "/uzma_v2.jpg",
     hasDedicatedPage: false,
   },
   {
-    id: "pratap-tengire",
-    name: "Adv. Pratap Tengire",
+    id: "pratap-temgire",
+    name: "Adv. Pratap Temgire",
     role: "Associate",
     enrolment: "Bar Council of Maharashtra & Goa (2022)",
     highCourt: "Bar Council of India (2023) | CLAT PG AIR 242",
@@ -89,13 +85,13 @@ const team = [
       "Legal Research & Drafting",
       "Intellectual Property Rights",
     ],
-    bio: "Adv. Pratap Tengire is a dynamic Associate with a strong academic foundation from Maharashtra National Law University (MNLU). He has appeared before the Bombay High Court, DRT, DRAT, and district courts, with core expertise in banking litigation, SARFAESI proceedings, NI Act matters, and corporate law. A national moot court champion with a rigorous approach to research and drafting.",
+    bio: "Adv. Pratap Temgire is a dynamic Associate with a strong academic foundation from Maharashtra National Law University (MNLU). He has significant hands-on experience representing clients before the Bombay High Court, DRT, DRAT, and district courts. With core expertise in banking litigation, SARFAESI proceedings, Section 138 NI Act matters, and corporate law, Pratap has a meticulous approach to drafting applications, defending counterclaims, and presenting evidence. He is also a celebrated national moot court champion with a passion for precise legal research and advocacy.",
     practiceHighlights: [
-      "Bombay High Court (Writ & Civil Appeals)",
-      "Debt Recovery Tribunal (DRT & DRAT)",
-      "SARFAESI & Banking Recovery",
-      "Section 138 NI Act Cases",
-      "Metropolitan Magistrate & Session Courts",
+      "Drafting and arguing SARFAESI and RDB Act applications before DRT and DRAT.",
+      "Handling high-volume Section 138 NI Act cases on behalf of banks and financial institutions.",
+      "Extensive appearances in Bombay City Civil Court and Metropolitan Magistrate Court.",
+      "Defending counter claims and securitization applications before DRT.",
+      "Secured AIR 242 in CLAT PG 2024 and won multiple national moot court competitions.",
     ],
     initials: "PT",
     image: "/pratap_v2.jpg",
@@ -152,7 +148,7 @@ export default function PartnersSection() {
                 display: "inline-flex",
               }}
             >
-              Our Team
+              Expert Lawyers
             </div>
             <h2
               className="reveal section-title"
@@ -202,7 +198,7 @@ export default function PartnersSection() {
                     borderRadius: "8px",
                     overflow: "hidden",
                     boxShadow: "var(--shadow-sm)",
-                    border: member.role === "Proprietor"
+                    border: member.role === "Founder"
                       ? "1px solid rgba(201, 168, 76, 0.35)"
                       : "1px solid var(--border-light)",
                     transition: "all 0.4s ease",
@@ -221,14 +217,14 @@ export default function PartnersSection() {
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLDivElement).style.boxShadow = "var(--shadow-sm)";
                     (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
-                    (e.currentTarget as HTMLDivElement).style.borderColor = member.role === "Proprietor"
+                    (e.currentTarget as HTMLDivElement).style.borderColor = member.role === "Founder"
                       ? "rgba(201, 168, 76, 0.35)"
                       : "rgba(201, 168, 76, 0.1)";
                   }}
                   onClick={() => setActiveIdx(idx)}
                 >
-                  {/* Proprietor badge */}
-                  {member.role === "Proprietor" && (
+                  {/* Founder badge */}
+                  {member.role === "Founder" && (
                     <div style={{
                       position: "absolute",
                       top: "14px",
@@ -243,7 +239,7 @@ export default function PartnersSection() {
                       borderRadius: "2px",
                       zIndex: 2,
                     }}>
-                      Proprietor
+                      Founder
                     </div>
                   )}
 
@@ -273,7 +269,7 @@ export default function PartnersSection() {
                         width: "80px",
                         height: "80px",
                         borderRadius: "50%",
-                        border: member.role === "Proprietor"
+                        border: member.role === "Founder"
                           ? "2px solid rgba(201, 168, 76, 0.7)"
                           : "2px solid rgba(201, 168, 76, 0.35)",
                         position: "relative",

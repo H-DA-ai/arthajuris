@@ -59,7 +59,7 @@ const practiceAreas = [
       "Section 138 NI Act",
       "Loan Recovery & Banking",
     ],
-    lead: "Adv. Pratap Tengire & Adv. Mayura Maru",
+    lead: "Adv. Pratap Temgire & Adv. Mayura Maru",
   },
   {
     slug: "civil-litigation",
@@ -98,7 +98,7 @@ const practiceAreas = [
       "Bail Applications & Criminal Trials",
       "Criminal Appeals",
     ],
-    lead: "Adv. Mayura Maru & Adv. Pratap Tengire",
+    lead: "Adv. Mayura Maru & Adv. Pratap Temgire",
   },
   {
     slug: "legal-documentation-compliance",

@@ -3,9 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Adv. Mayura Maru — Proprietor | Artha Juris Legal Consultancy",
+  title: "Adv. Mayura Maru — Founder | Artha Juris Legal Consultancy",
   description:
-    "Adv. Mayura Navnit Maru is the Proprietor of Artha Juris Legal Consultancy with over 25 years of practice at the Bombay High Court and courts across Maharashtra. Known for landmark PIL No. 138 of 2012 on illegal constructions in Navi Mumbai.",
+    "Adv. Mayura Navnit Maru is the Founder of Artha Juris Legal Consultancy with over 25 years of practice at the Bombay High Court and courts across Maharashtra. Known for landmark PIL No. 138 of 2012 on illegal constructions in Navi Mumbai.",
 };
 
 const practiceDetails = [
@@ -105,7 +105,7 @@ const expertise = [
   "SARFAESI & Banking Recovery",
 ];
 
-export default function ProprietorPage() {
+export default function FounderPage() {
   return (
     <div style={{ background: "var(--cream)", minHeight: "100vh" }}>
       {/* Navigation Bar */}
@@ -128,7 +128,7 @@ export default function ProprietorPage() {
         >
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "12px" }}>
             <div style={{ position: "relative", width: "70px", height: "70px" }}>
-              <Image src="/logo_v2.png" alt="Arthajuris" fill style={{ objectFit: "contain" }} />
+              <Image src="/new_logo.jpg" alt="Arthajuris" fill style={{ objectFit: "contain" }} />
             </div>
             <div>
               <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.4rem", fontWeight: 700, color: "var(--white)", lineHeight: 1 }}>
@@ -178,21 +178,21 @@ export default function ProprietorPage() {
           <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "28px" }}>
             <div style={{ width: "28px", height: "1px", background: "var(--gold)" }} />
             <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--gold)" }}>
-              Proprietor & Founder
+              Founder & Founder
             </span>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 300px", gap: "60px", alignItems: "center" }} className="proprietor-hero-grid">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 300px", gap: "60px", alignItems: "center" }} className="founder-hero-grid">
             <div>
               <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 800, color: "var(--white)", lineHeight: 1.1, marginBottom: "16px" }}>
                 Adv. Mayura Navnit Maru
               </h1>
               <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "24px" }}>
-                BSc. LLB · Proprietor, Artha Juris · 25+ Years Practice
+                BSc. LLB · Founder, Artha Juris · 25+ Years Practice
               </div>
               <div style={{ width: "50px", height: "2px", background: "linear-gradient(90deg, var(--gold), var(--gold-light))", marginBottom: "28px" }} />
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.0625rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.8, maxWidth: "600px", marginBottom: "32px" }}>
-                Advocate Mayura Navnit Maru is a senior practising advocate with over 25 years of independent legal practice, primarily before the Bombay High Court. Enrolled with the Bar Council of Maharashtra &amp; Goa in 2002, she is the founding Proprietor of Artha Juris. She is widely recognised for her landmark PIL (No. 138 of 2012) that forced Maharashtra planning authorities to adopt a zero-tolerance policy against unauthorized constructions.
+                Advocate Mayura Navnit Maru is a senior practising advocate with over 25 years of independent legal practice, primarily before the Bombay High Court. Enrolled with the Bar Council of Maharashtra &amp; Goa in 2002, she is the founding Founder of Artha Juris. She is widely recognised for her landmark PIL (No. 138 of 2012) that forced Maharashtra planning authorities to adopt a zero-tolerance policy against unauthorized constructions.
               </p>
               <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
                 <div style={{ padding: "10px 20px", background: "rgba(201, 168, 76, 0.1)", border: "1px solid rgba(201, 168, 76, 0.3)", borderRadius: "2px" }}>
@@ -219,8 +219,8 @@ export default function ProprietorPage() {
               }}
             >
               <Image
-                src="/mayura.png"
-                alt="Adv. Mayura Maru — Proprietor, Arthajuris"
+                src="/new_mayura.jpg"
+                alt="Adv. Mayura Maru — Founder, Arthajuris"
                 fill
                 style={{ objectFit: "cover" }}
                 priority
@@ -239,7 +239,7 @@ export default function ProprietorPage() {
       {/* Professional Summary */}
       <section style={{ padding: "80px 0", background: "var(--cream)" }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "72px", alignItems: "start" }} className="proprietor-two-col">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "72px", alignItems: "start" }} className="founder-two-col">
             <div>
               <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "14px" }}>
                 Professional Summary
@@ -479,10 +479,10 @@ export default function ProprietorPage() {
 
       <style>{`
         @media (max-width: 900px) {
-          .proprietor-hero-grid {
+          .founder-hero-grid {
             grid-template-columns: 1fr !important;
           }
-          .proprietor-two-col {
+          .founder-two-col {
             grid-template-columns: 1fr !important;
             gap: 48px !important;
           }

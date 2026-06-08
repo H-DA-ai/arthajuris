@@ -123,7 +123,7 @@ const expertiseData: Record<
   "banking-debt-recovery": {
     title: "Banking & Debt Recovery",
     subtitle: "Expert Representation Before DRT, DRAT & Under SARFAESI",
-    lead: "Adv. Pratap Tengire & Adv. Mayura Maru",
+    lead: "Adv. Pratap Temgire & Adv. Mayura Maru",
     intro:
       "Banking and financial disputes require specialised expertise in the complex interplay of recovery laws, tribunal procedures, and debtor-creditor rights. Our Banking & Debt Recovery practice represents banks, financial institutions, and borrowers in recovery proceedings, SARFAESI actions, and NI Act cases.",
     whatWeOffer: [
@@ -228,7 +228,7 @@ const expertiseData: Record<
   "family-criminal-law": {
     title: "Family & Criminal Law",
     subtitle: "Compassionate & Vigorous Representation in Sensitive Legal Matters",
-    lead: "Adv. Mayura Maru & Adv. Pratap Tengire",
+    lead: "Adv. Mayura Maru & Adv. Pratap Temgire",
     intro:
       "Family and criminal matters are among the most sensitive and personally significant legal challenges one can face. Our approach combines legal rigour with genuine empathy — ensuring that clients are represented with both effectiveness and dignity throughout the process.",
     whatWeOffer: [

@@ -503,8 +503,8 @@ export default function BookingSection() {
                     <input id="phone" name="phone" type="tel" required value={form.phone} onChange={handleChange} placeholder="+91 XXXXX XXXXX" className="form-input" />
                   </div>
                   <div className="form-group">
-                    <label className="form-label" htmlFor="practiceArea">Area of Law *</label>
-                    <select id="practiceArea" name="practiceArea" required value={form.practiceArea} onChange={handleChange} className="form-select" style={{ cursor: "pointer" }}>
+                    <label className="form-label" htmlFor="practiceArea">Area of Law</label>
+                    <select id="practiceArea" name="practiceArea" value={form.practiceArea} onChange={handleChange} className="form-select" style={{ cursor: "pointer" }}>
                       <option value="">Select an area</option>
                       {practiceOptions.map((opt) => (<option key={opt} value={opt}>{opt}</option>))}
                     </select>

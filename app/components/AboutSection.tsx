@@ -124,6 +124,7 @@ export default function AboutSection() {
                 color: "var(--text-mid)",
                 lineHeight: 1.8,
                 marginBottom: "20px",
+                textAlign: "justify",
                 opacity: 0,
                 transform: "translateY(20px)",
                 transition: "all 0.6s ease",
@@ -138,6 +139,7 @@ export default function AboutSection() {
                 fontSize: "1rem",
                 color: "var(--text-mid)",
                 lineHeight: 1.8,
+                textAlign: "justify",
                 opacity: 0,
                 transform: "translateY(20px)",
                 transition: "all 0.6s ease",
@@ -248,7 +250,7 @@ export default function AboutSection() {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
                 {[
                   { label: "High Court Bombay", sublabel: "Registered & Active" },
-                  { label: "Pan-Maharashtra", sublabel: "Court Coverage" },
+                  { label: "Pan-India", sublabel: "Court Coverage" },
                   { label: "Multi-Disciplinary", sublabel: "Practice Areas" },
                   { label: "Individual & Corporate", sublabel: "Clientele" },
                 ].map((fact) => (

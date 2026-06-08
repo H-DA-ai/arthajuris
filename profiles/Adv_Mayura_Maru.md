@@ -1,28 +1,19 @@
-# Profile: Adv. Mayura Maru
+# Profile: Advocate Mayura Navnit Maru
 
-**Role:** Proprietor
-**Experience:** 22+ Years
-**Enrolment:** Enrolment No. MAH/2976/2002
-**High Court:** High Court O.S. Reg. No. 15412
+Advocate Mayura Navnit Maru is a senior legal practitioner based in Mumbai, with over 25 years of independent practice before the Bombay High Court and various courts/tribunals across Pan India. Enrolled with the Bar Council of Maharashtra & Goa in 2002, she is proficient in English, Hindi, Gujarati, and Marathi.
 
-## Bio
-With over 22 years of sustained practice at the Bombay High Court and across all courts in Maharashtra, Adv. Mayura Maru is the founding Proprietor of Arthajuris. Her practice spans complex civil, corporate, property, banking, and family law — representing corporate entities, financial institutions, and individuals in high-stakes matters with equal skill and dedication.
+## Core Practice Areas
+- **Corporate & Commercial Law** – Arbitration, corporate governance compliance, contract vetting, and advisory.
+- **Real Estate & Property Law** – Land acquisition, property agreements, disputes under MOFA and MRTP Acts.
+- **Civil & Family Law** – Civil litigation, family court matters, divorce, domestic violence, succession, probate.
+- **Banking & Finance** – Debt recovery, financial disputes, representation before banking tribunals.
 
-## Education
-- BSc — Wilson College, Mumbai University (1998)
-- LLB — Kishanchand Chhellaram College, Mumbai University (2002)
+## Courts of Practice
+- Bombay High Court
+- Debts Recovery Tribunal (DRT), Mumbai
+- Family Courts, Mumbai
+- District Courts in Mumbai and Raigad
 
-## Areas of Expertise
-- Civil Litigation
-- Corporate & Business Law
-- Property & Real Estate Law
-- Banking & DRT/DRAT
-- Criminal Law
-- Family Law
-
-## Court Presence & Practice Highlights
-- Bombay High Court (Appellate & Original Side)
-- NCLT — Insolvency & Winding Up Petitions
-- DRT & DRAT Proceedings
-- RERA, CIDCO, MIDC, SRA Matters
-- Criminal, Consumer & Civil Courts across Maharashtra
+## Key Legal Contributions
+- **Landmark PIL (PIL No. 138 of 2012)** – Mayura Maru v. State of Maharashtra before the Bombay High Court, challenging unauthorized constructions in Navi Mumbai and Trans-Thane Creek. The case led to strict judicial directions enforcing a “zero-tolerance” policy against illegal development, compelling authorities like CIDCO, NMMC, and MIDC to act against thousands of unauthorized structures.
+- Advocacy for investor protection, including representations to SEBI on unregulated online investment platforms.

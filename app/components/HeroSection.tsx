@@ -454,7 +454,7 @@ export default function HeroSection() {
                 <strong style={{ color: "var(--navy)" }}>Artha Juris</strong> is where meaning meets the law. Our name reflects our conviction that legal practice is not merely procedural — it is purposeful. We exist to bring clarity, protection, and resolution to all who seek it.
               </p>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.95rem", color: "rgba(15, 28, 53, 0.7)", lineHeight: 1.8 }}>
-                 Led by <strong style={{ color: "var(--navy)" }}>Adv. Mayura Maru</strong> — Proprietor and founder — with over 25 years of practice at the Bombay High Court, Artha Juris is supported by a team of expert and experienced lawyers bringing deep expertise across every aspect of law in Maharashtra.
+                 Led by <strong style={{ color: "var(--navy)" }}>Adv. Mayura Maru</strong> — Founder and founder — with over 25 years of practice at the Bombay High Court, Artha Juris is supported by a team of expert and experienced lawyers bringing deep expertise across every aspect of law in Maharashtra.
               </p>
               <div style={{ display: "flex", gap: "12px" }}>
                 <button onClick={() => { setShowFirmPopup(false); scrollToAbout(); }} className="btn-primary" style={{ fontSize: "0.8125rem" }}>

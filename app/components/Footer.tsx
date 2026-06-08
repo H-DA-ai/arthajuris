@@ -193,9 +193,9 @@ export default function Footer() {
               Our Team
             </div>
             {[
-              { name: "Adv. Mayura Maru", role: "Proprietor" },
+              { name: "Adv. Mayura Maru", role: "Founder" },
               { name: "Adv. Uzma Khan", role: "Senior Associate" },
-              { name: "Adv. Pratap Tengire", role: "Associate" },
+              { name: "Adv. Pratap Temgire", role: "Associate" },
             ].map((p) => (
               <div key={p.name} style={{ marginBottom: "14px" }}>
                 <div
@@ -257,7 +257,7 @@ export default function Footer() {
           >
             <span>Legal Consultancy (Proprietary Concern) · Mumbai, Maharashtra</span>
             <a 
-              href="https://wa.me/919930883358" 
+              href="https://wa.me/917304021369" 
               target="_blank" 
               rel="noopener noreferrer"
               style={{
