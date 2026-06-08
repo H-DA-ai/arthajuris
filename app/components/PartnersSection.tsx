@@ -63,7 +63,8 @@ const team = [
     ],
     initials: "UK",
     image: "/uzma_v2.jpg",
-    hasDedicatedPage: false,
+    hasDedicatedPage: true,
+    dedicatedPageUrl: "/uzma-khan",
   },
   {
     id: "pratap-temgire",
@@ -95,7 +96,8 @@ const team = [
     ],
     initials: "PT",
     image: "/pratap_v2.jpg",
-    hasDedicatedPage: false,
+    hasDedicatedPage: true,
+    dedicatedPageUrl: "/pratap-temgire",
   },
 ];
 
