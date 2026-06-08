@@ -121,7 +121,7 @@ export default function FAQSection() {
         </div>
       </div>
 
-      <style>{\`
+      <style>{`
         .reveal-left {
           opacity: 0;
           transform: translateX(-50px);
@@ -136,7 +136,7 @@ export default function FAQSection() {
           opacity: 1 !important;
           transform: translate(0, 0) !important;
         }
-      \`}</style>
+      `}</style>
     </section>
   );
 }
