@@ -214,7 +214,7 @@ export default function BookingSection() {
                       src="/payment_qr_v3.jpg"
                       alt="Arthajuris UPI QR Code - Mayura Maru"
                       fill
-                      style={{ objectFit: "contain", background: "#fff", padding: "16px" }}
+                      style={{ objectFit: "cover", objectPosition: "center", background: "#fff", transform: "scale(2.4)" }}
                     />
                   </div>
 
