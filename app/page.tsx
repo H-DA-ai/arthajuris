@@ -5,6 +5,7 @@ import PartnersSection from "./components/PartnersSection";
 import PracticeSection from "./components/PracticeSection";
 import BookingSection from "./components/BookingSection";
 import BlogPreviewSection from "./components/BlogPreviewSection";
+import FAQSection from "./components/FAQSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 
@@ -19,6 +20,7 @@ export default function Home() {
         <PracticeSection />
         <BookingSection />
         <BlogPreviewSection />
+        <FAQSection />
         <ContactSection />
       </main>
       <Footer />

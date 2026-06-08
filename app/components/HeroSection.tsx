@@ -160,7 +160,7 @@ export default function HeroSection() {
               }}>
                 <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "var(--gold)", display: "inline-block" }} />
                 <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--gold)" }}>
-                  Proprietary Concern · Est. 2025 · Mumbai
+                  Premier Law Firm · Est. 2025 · Mumbai
                 </span>
               </div>
 

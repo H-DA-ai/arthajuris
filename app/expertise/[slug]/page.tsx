@@ -374,7 +374,7 @@ export default async function ExpertisePage({
               Arthajuris
             </div>
             <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.25em", color: "var(--gold)", textTransform: "uppercase" }}>
-              Proprietary Concern
+              Premier Law Firm
             </div>
           </Link>
           <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>

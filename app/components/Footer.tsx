@@ -63,7 +63,7 @@ export default function Footer() {
                 maxWidth: "280px",
               }}
             >
-              A Mumbai-based legal consultancy (Proprietary Concern) led by Adv. Mayura Maru — a team of expert and experienced lawyers to help you with every aspect of your legal needs across Maharashtra.
+              A Mumbai-based legal consultancy (Premier Law Firm) led by Adv. Mayura Maru — a team of expert and experienced lawyers to help you with every aspect of your legal needs across Maharashtra.
             </p>
             <div
               style={{
@@ -255,7 +255,7 @@ export default function Footer() {
               flexWrap: "wrap",
             }}
           >
-            <span>Legal Consultancy (Proprietary Concern) · Mumbai, Maharashtra</span>
+            <span>Legal Consultancy (Premier Law Firm) · Mumbai, Maharashtra</span>
             <a 
               href="https://wa.me/917304021369" 
               target="_blank" 

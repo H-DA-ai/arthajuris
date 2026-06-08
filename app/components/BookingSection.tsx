@@ -176,7 +176,7 @@ export default function BookingSection() {
                   Complete Your Payment
                 </h3>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", color: "rgba(255,255,255,0.6)", margin: 0 }}>
-                  Scan the QR below to pay the consultation fee
+                  Scan the QR below to pay the consultation fee to Adv. Mayura Maru
                 </p>
               </div>
 
@@ -211,8 +211,8 @@ export default function BookingSection() {
                   </div>
                   <div style={{ position: "relative", width: "240px", height: "240px", margin: "0 auto", borderRadius: "12px", overflow: "hidden", border: "2px solid rgba(201,168,76,0.3)", boxShadow: "0 8px 32px rgba(0,0,0,0.12)" }}>
                     <Image
-                      src="/payment_qr_v2.jpg"
-                      alt="Arthajuris UPI QR Code"
+                      src="/payment_qr_v3.jpg"
+                      alt="Arthajuris UPI QR Code - Mayura Maru"
                       fill
                       style={{ objectFit: "contain", background: "#fff", padding: "16px" }}
                     />
@@ -221,8 +221,8 @@ export default function BookingSection() {
                   {/* Download QR Button */}
                   <div style={{ marginTop: "16px" }}>
                     <a
-                      href="/payment_qr_v2.jpg"
-                      download="Arthajuris-Payment-QR.jpg"
+                      href="/payment_qr_v3.jpg"
+                      download="Adv-Mayura-Maru-QR.jpg"
                       style={{
                         display: "inline-flex",
                         alignItems: "center",

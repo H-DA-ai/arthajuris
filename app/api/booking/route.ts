@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-const FIRM_EMAIL = process.env.NEXT_PUBLIC_FIRM_EMAIL || "arthajuris@gmail.com";
+const FIRM_EMAIL = process.env.NEXT_PUBLIC_FIRM_EMAIL || "firm@arthajuris.com";
 const GMAIL_USER = process.env.GMAIL_USER;
 const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD;
 const CONSULTATION_FEE = process.env.NEXT_PUBLIC_CONSULTATION_FEE || "3500";
@@ -68,7 +68,7 @@ export async function POST(req: NextRequest) {
       <div style="font-family: Arial, sans-serif; max-width: 640px; margin: 0 auto; background: #fff; border: 1px solid #e8e0d0;">
         <div style="background: linear-gradient(135deg, #0f1c35 0%, #1a2f52 100%); padding: 32px 36px; border-bottom: 3px solid #c9a84c;">
           <div style="font-family: Georgia, serif; font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 0.03em;">Arthajuris</div>
-          <div style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: #c9a84c; margin-top: 4px;">Legal Consultancy · Proprietary Concern</div>
+          <div style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: #c9a84c; margin-top: 4px;">Legal Consultancy · Premier Law Firm</div>
           <h2 style="color: #c9a84c; margin: 20px 0 0; font-size: 18px; font-weight: 600; font-family: Georgia, serif;">New Consultation Request Received</h2>
         </div>
         <div style="padding: 32px 36px;">
@@ -138,7 +138,7 @@ export async function POST(req: NextRequest) {
       <div style="font-family: Arial, sans-serif; max-width: 640px; margin: 0 auto; background: #fff; border: 1px solid #e8e0d0;">
         <div style="background: linear-gradient(135deg, #0f1c35 0%, #1a2f52 100%); padding: 32px 36px; border-bottom: 3px solid #c9a84c;">
           <div style="font-family: Georgia, serif; font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 0.03em;">Arthajuris</div>
-          <div style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: #c9a84c; margin-top: 4px;">Legal Consultancy · Proprietary Concern</div>
+          <div style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: #c9a84c; margin-top: 4px;">Legal Consultancy · Premier Law Firm</div>
           <h2 style="color: #fff; margin: 20px 0 0; font-size: 20px; font-weight: 600; font-family: Georgia, serif;">Thank You for Your Consultation Request</h2>
         </div>
         <div style="padding: 32px 36px;">
@@ -186,7 +186,7 @@ export async function POST(req: NextRequest) {
         </div>
         <div style="padding: 24px 36px; background: linear-gradient(135deg, #0f1c35 0%, #1a2f52 100%); border-top: 3px solid #c9a84c;">
           <div style="font-family: Georgia, serif; font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px;">Arthajuris</div>
-          <div style="font-size: 11px; color: #c9a84c; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px;">Legal Consultancy · Proprietary Concern</div>
+          <div style="font-size: 11px; color: #c9a84c; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px;">Legal Consultancy · Premier Law Firm</div>
           <div style="font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.8;">
             Office No. 4/B, 4th Floor, Mahavir Chambers, 1/5 Banaji Street, Fort, Mumbai – 400 001<br>
             Email: ${FIRM_EMAIL}<br>

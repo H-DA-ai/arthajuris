@@ -299,7 +299,7 @@ export default function PartnersSection() {
                         fill
                         style={{
                           objectFit: "cover",
-                          objectPosition: "top center",
+                          objectPosition: member.id === "mayura-maru" ? "center 20%" : "top center",
                           transition: "transform 0.5s ease",
                           filter: "contrast(1.06) brightness(0.96) saturate(1.12)",
                         }}

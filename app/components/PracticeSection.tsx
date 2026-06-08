@@ -163,7 +163,7 @@ export default function PracticeSection() {
 
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "60px" }}>
+        <div style={{ textAlign: "center", marginBottom: "64px", maxWidth: "800px", margin: "0 auto 64px" }} className="reveal-up">
           <div
             className="reveal section-tag"
             style={{ opacity: 0, transform: "translateY(20px)", transition: "all 0.6s ease", display: "inline-flex" }}
@@ -186,7 +186,7 @@ export default function PracticeSection() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid-3" style={{ gap: "24px" }}>
+        <div className="grid-3 reveal-left" style={{ gap: "24px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))" }}>
           {practiceAreas.map((area) => (
             <div
               key={area.title}
