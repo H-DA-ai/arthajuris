@@ -245,7 +245,7 @@ export default function FounderPage() {
               }}
             >
               <Image
-                src="/new_mayura.jpg"
+                src="/new_mayura_v2.jpg"
                 alt="Adv. Mayura Maru — Founder, Arthajuris"
                 fill
                 style={{ objectFit: "cover" }}
