@@ -63,7 +63,7 @@ export default function Footer() {
                 maxWidth: "280px",
               }}
             >
-              A Mumbai-based legal consultancy (Premier Law Firm) led by Adv. Mayura Maru — a team of expert and experienced lawyers to help you with every aspect of your legal needs across Maharashtra.
+              A Mumbai-based legal consultancy (Premier Law Firm) led by Adv. Mayura Maru — a team of expert and experienced lawyers to help you with every aspect of your legal needs across Maharashtra and India.
             </p>
             <div
               style={{

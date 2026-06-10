@@ -221,7 +221,7 @@ export default function HeroSection() {
                 >
                   Adv. Mayura Maru
                 </button>
-                {" "}— 25+ years at the Bombay High Court, serving individuals, corporations, and institutions across Maharashtra with excellence and integrity.
+                {" "}— 25+ years at the Bombay High Court, serving individuals, corporations, and institutions across Maharashtra and India with excellence and integrity.
               </p>
 
               {/* Practice area pills */}
