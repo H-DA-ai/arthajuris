@@ -33,9 +33,10 @@ export async function POST(req: NextRequest) {
     } = body;
 
     // Backend enforcement: transaction reference is mandatory
-    if (!transactionRef || String(transactionRef).trim().length < 6) {
+    // Enhanced UTR validation: must be exactly 12 digits
+    if (!transactionRef || !/^\d{12}$/.test(String(transactionRef).trim())) {
       return NextResponse.json(
-        { error: "A valid UPI Transaction / UTR reference number is required to confirm your booking." },
+        { error: "Please provide a valid 12-digit UTR/Transaction Reference number." },
         { status: 400 }
       );
     }
@@ -146,7 +147,7 @@ export async function POST(req: NextRequest) {
             Dear <strong style="color: #0f1c35;">${fullName}</strong>,
           </p>
           <p style="color: #4a4a6a; font-size: 15px; line-height: 1.7; margin-bottom: 20px;">
-            Thank you for reaching out to <strong style="color: #0f1c35;">Arthajuris</strong>. We have received your request for a legal consultation and are pleased to assist you.
+            Thank you for reaching out to <strong style="color: #0f1c35;">Arthajuris</strong>. We have received your confirmation request. Our team is looking into it and will send you a confirmed email for your appointment shortly.
           </p>
           <div style="background: #faf7f0; border: 1px solid #e8e0d0; border-radius: 4px; padding: 24px; margin-bottom: 28px;">
             <div style="font-size: 12px; font-weight: 700; color: #c9a84c; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px;">Your Booking Summary</div>
@@ -159,12 +160,12 @@ export async function POST(req: NextRequest) {
           </div>
 
           <div style="background: #fff8e8; border: 1px solid #c9a84c; border-radius: 4px; padding: 24px; margin-bottom: 28px;">
-            <div style="font-size: 12px; font-weight: 700; color: #a07c2d; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">✦ Pending Payment & Slot Confirmation</div>
+            <div style="font-size: 12px; font-weight: 700; color: #a07c2d; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">✦ Payment Verification</div>
             <p style="color: #4a4a6a; font-size: 14px; line-height: 1.7; margin-bottom: 16px;">
-              To confirm and secure your consultation slot, the fee of <strong style="color: #0f1c35; font-size: 16px;">₹${CONSULTATION_FEE}</strong> must be received.
+              If you haven't paid yet, please complete the fee of <strong style="color: #0f1c35; font-size: 16px;">₹${CONSULTATION_FEE}</strong> to secure your slot.
             </p>
             <p style="color: #4a4a6a; font-size: 14px; line-height: 1.7; margin-bottom: 20px;">
-              Please ensure your payment is completed via UPI using the QR code on our website or the details below:
+              You can make the payment via UPI using the QR code on our website or the details below:
             </p>
             
             <div style="border-top: 1px solid #e8d5a0; padding-top: 16px;">
@@ -212,7 +213,7 @@ export async function POST(req: NextRequest) {
     await transporter.sendMail({
       from: `"Arthajuris Legal Consultancy" <${GMAIL_USER}>`,
       to: email,
-      subject: `Your Consultation Request — Arthajuris | Payment Pending`,
+      subject: `Your Consultation Request — Arthajuris | Processing`,
       html: clientEmailHtml,
       replyTo: FIRM_EMAIL,
     });

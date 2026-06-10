@@ -257,7 +257,14 @@ export default function BookingSection() {
                   <input
                     type="text"
                     value={transactionRef}
-                    onChange={(e) => setTransactionRef(e.target.value)}
+                    onChange={(e) => {
+                      const val = e.target.value.replace(/\D/g, '').slice(0, 12);
+                      setTransactionRef(val);
+                    }}
+                    maxLength={12}
+                    minLength={12}
+                    pattern="\d{12}"
+                    title="Please enter exactly 12 digits"
                     placeholder="e.g. 512345678901"
                     style={{
                       width: "100%",
