@@ -28,7 +28,7 @@ const team = [
       "Bombay High Court, Debts Recovery Tribunal (DRT), Family Courts, District Courts in Mumbai and Raigad."
     ],
     initials: "MM",
-    image: "/new_mayura_v2.jpg",
+    image: "/new_mayura_v3.jpg",
     hasDedicatedPage: true,
     dedicatedPageUrl: "/founder",
   },

@@ -245,7 +245,7 @@ export default function FounderPage() {
               }}
             >
               <Image
-                src="/new_mayura_v2.jpg"
+                src="/new_mayura_v3.jpg"
                 alt="Adv. Mayura Maru — Founder, Artha Juris"
                 fill
                 style={{ objectFit: "cover" }}
