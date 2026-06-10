@@ -89,7 +89,7 @@ export default function Navbar() {
             <div style={{ position: "relative", width: "64px", height: "64px" }}>
               <Image
                 src="/new_logo.jpg"
-                alt="ArthajurisLaw Logo"
+                alt="Artha Juris Law Logo"
                 fill
                 style={{ objectFit: "contain" }}
                 priority

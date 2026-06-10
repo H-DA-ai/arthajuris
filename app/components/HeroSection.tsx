@@ -113,7 +113,7 @@ export default function HeroSection() {
         <div style={{ position: "absolute", inset: 0, zIndex: 0, background: "#050a15" }}>
           <Image
             src="/wide_law_room.png"
-            alt="Arthajuris"
+            alt="Artha Juris"
             fill
             style={{ objectFit: "cover", objectPosition: "center" }}
             priority
@@ -338,7 +338,7 @@ export default function HeroSection() {
                 <div style={{ position: "relative", width: "100%", paddingTop: "90%" }}>
                   <Image
                     src="/scales_justice.png"
-                    alt="Arthajuris Legal Consultancy"
+                    alt="Artha Juris Legal Consultancy"
                     fill
                     style={{ objectFit: "contain", objectPosition: "center" }}
                   />

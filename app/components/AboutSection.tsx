@@ -178,7 +178,7 @@ export default function AboutSection() {
               >
               <Image
                 src="/arthajuris_team_edited.png"
-                alt="Arthajuris Law Firm Team"
+                alt="Artha Juris Law Firm Team"
                 fill
                 style={{ objectFit: "cover" }}
                 sizes="(max-width: 900px) 100vw, 50vw"

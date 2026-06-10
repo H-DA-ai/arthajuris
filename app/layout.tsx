@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Artha Juris is a distinguished Mumbai-based legal consultancy (Premier Law Firm) led by Adv. Mayura Maru. Over 25 years of experience in Corporate Law, Real Estate, Banking, Civil & Family Law across all courts in Maharashtra.",
   keywords:
-    "Artha Juris, Arthajuris, law firm Mumbai, legal consultancy Mumbai, advocates Mumbai, corporate law, property law, civil litigation, banking law, family law, Mayura Maru, Pratap Temgire, Uzma Khan, Bombay High Court, NCLT, DRT",
+    "Artha Juris, Artha Juris, law firm Mumbai, legal consultancy Mumbai, advocates Mumbai, corporate law, property law, civil litigation, banking law, family law, Mayura Maru, Pratap Temgire, Uzma Khan, Bombay High Court, NCLT, DRT",
   openGraph: {
     title: "Artha Juris – Premier Legal Consultancy | Mumbai",
     description:

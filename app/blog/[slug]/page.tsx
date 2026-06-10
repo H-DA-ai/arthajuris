@@ -267,7 +267,7 @@ export default function BlogPostPage() {
             <div>
               <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "4px" }}>Article by</div>
               <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1rem", color: "var(--navy)", fontWeight: 700 }}>{post.author}</div>
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.8rem", color: "var(--text-light)" }}>Arthajuris Legal Consultancy</div>
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.8rem", color: "var(--text-light)" }}>Artha Juris Legal Consultancy</div>
             </div>
           </div>
 

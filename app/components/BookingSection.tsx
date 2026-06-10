@@ -212,7 +212,7 @@ export default function BookingSection() {
                   <div style={{ position: "relative", width: "240px", height: "240px", margin: "0 auto", borderRadius: "12px", overflow: "hidden", border: "2px solid rgba(201,168,76,0.3)", boxShadow: "0 8px 32px rgba(0,0,0,0.12)" }}>
                     <Image
                       src="/payment_qr_v4.jpg"
-                      alt="Arthajuris UPI QR Code - Mayura Maru"
+                      alt="Artha Juris UPI QR Code - Mayura Maru"
                       fill
                       style={{ objectFit: "contain", background: "#fff", padding: "16px" }}
                     />

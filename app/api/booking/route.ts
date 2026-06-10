@@ -68,13 +68,13 @@ export async function POST(req: NextRequest) {
     const firmEmailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 640px; margin: 0 auto; background: #fff; border: 1px solid #e8e0d0;">
         <div style="background: linear-gradient(135deg, #0f1c35 0%, #1a2f52 100%); padding: 32px 36px; border-bottom: 3px solid #c9a84c;">
-          <div style="font-family: Georgia, serif; font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 0.03em;">Arthajuris</div>
+          <div style="font-family: Georgia, serif; font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 0.03em;">Artha Juris</div>
           <div style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: #c9a84c; margin-top: 4px;">Legal Consultancy · Premier Law Firm</div>
           <h2 style="color: #c9a84c; margin: 20px 0 0; font-size: 18px; font-weight: 600; font-family: Georgia, serif;">New Consultation Request Received</h2>
         </div>
         <div style="padding: 32px 36px;">
           <p style="color: #4a4a6a; font-size: 15px; line-height: 1.7; margin-bottom: 24px;">
-            A new consultation request has been submitted via the Arthajuris website. The client details are as follows:
+            A new consultation request has been submitted via the Artha Juris website. The client details are as follows:
           </p>
           <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
             <tr style="background: #faf7f0;">
@@ -127,7 +127,7 @@ export async function POST(req: NextRequest) {
           </div>
         </div>
         <div style="padding: 20px 36px; background: #faf7f0; border-top: 1px solid #e8e0d0; font-size: 12px; color: #8888aa;">
-          To reply to the client, hit "Reply" to this email · Arthajuris Legal Consultancy · Mumbai, Maharashtra
+          To reply to the client, hit "Reply" to this email · Artha Juris Legal Consultancy · Mumbai, Maharashtra
         </div>
       </div>
     `;
@@ -138,7 +138,7 @@ export async function POST(req: NextRequest) {
     const clientEmailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 640px; margin: 0 auto; background: #fff; border: 1px solid #e8e0d0;">
         <div style="background: linear-gradient(135deg, #0f1c35 0%, #1a2f52 100%); padding: 32px 36px; border-bottom: 3px solid #c9a84c;">
-          <div style="font-family: Georgia, serif; font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 0.03em;">Arthajuris</div>
+          <div style="font-family: Georgia, serif; font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 0.03em;">Artha Juris</div>
           <div style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: #c9a84c; margin-top: 4px;">Legal Consultancy · Premier Law Firm</div>
           <h2 style="color: #fff; margin: 20px 0 0; font-size: 20px; font-weight: 600; font-family: Georgia, serif;">Thank You for Your Consultation Request</h2>
         </div>
@@ -147,7 +147,7 @@ export async function POST(req: NextRequest) {
             Dear <strong style="color: #0f1c35;">${fullName}</strong>,
           </p>
           <p style="color: #4a4a6a; font-size: 15px; line-height: 1.7; margin-bottom: 20px;">
-            Thank you for reaching out to <strong style="color: #0f1c35;">Arthajuris</strong>. We have received your confirmation request. Our team is looking into it and will send you a confirmed email for your appointment shortly.
+            Thank you for reaching out to <strong style="color: #0f1c35;">Artha Juris</strong>. We have received your confirmation request. Our team is looking into it and will send you a confirmed email for your appointment shortly.
           </p>
           <div style="background: #faf7f0; border: 1px solid #e8e0d0; border-radius: 4px; padding: 24px; margin-bottom: 28px;">
             <div style="font-size: 12px; font-weight: 700; color: #c9a84c; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px;">Your Booking Summary</div>
@@ -186,7 +186,7 @@ export async function POST(req: NextRequest) {
           </p>
         </div>
         <div style="padding: 24px 36px; background: linear-gradient(135deg, #0f1c35 0%, #1a2f52 100%); border-top: 3px solid #c9a84c;">
-          <div style="font-family: Georgia, serif; font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px;">Arthajuris</div>
+          <div style="font-family: Georgia, serif; font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px;">Artha Juris</div>
           <div style="font-size: 11px; color: #c9a84c; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px;">Legal Consultancy · Premier Law Firm</div>
           <div style="font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.8;">
             Office No. 4/B, 4th Floor, Mahavir Chambers, 1/5 Banaji Street, Fort, Mumbai – 400 001<br>
@@ -202,7 +202,7 @@ export async function POST(req: NextRequest) {
 
     // Send to firm
     await transporter.sendMail({
-      from: `"Arthajuris Website" <${GMAIL_USER}>`,
+      from: `"Artha Juris Website" <${GMAIL_USER}>`,
       to: FIRM_EMAIL,
       subject: `New Consultation Request — ${fullName} (${practiceArea})`,
       html: firmEmailHtml,
@@ -211,9 +211,9 @@ export async function POST(req: NextRequest) {
 
     // Send to client
     await transporter.sendMail({
-      from: `"Arthajuris Legal Consultancy" <${GMAIL_USER}>`,
+      from: `"Artha Juris Legal Consultancy" <${GMAIL_USER}>`,
       to: email,
-      subject: `Your Consultation Request — Arthajuris | Processing`,
+      subject: `Your Consultation Request — Artha Juris | Processing`,
       html: clientEmailHtml,
       replyTo: FIRM_EMAIL,
     });

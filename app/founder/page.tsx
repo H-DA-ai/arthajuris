@@ -154,7 +154,7 @@ export default function FounderPage() {
         >
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "12px" }}>
             <div style={{ position: "relative", width: "70px", height: "70px" }}>
-              <Image src="/new_logo.jpg" alt="Arthajuris" fill style={{ objectFit: "contain" }} />
+              <Image src="/new_logo.jpg" alt="Artha Juris" fill style={{ objectFit: "contain" }} />
             </div>
             <div>
               <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.4rem", fontWeight: 700, color: "var(--white)", lineHeight: 1 }}>
@@ -246,7 +246,7 @@ export default function FounderPage() {
             >
               <Image
                 src="/new_mayura_v2.jpg"
-                alt="Adv. Mayura Maru — Founder, Arthajuris"
+                alt="Adv. Mayura Maru — Founder, Artha Juris"
                 fill
                 style={{ objectFit: "cover" }}
                 priority

@@ -114,7 +114,7 @@ export default function UzmaPage() {
         >
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "12px" }}>
             <div style={{ position: "relative", width: "70px", height: "70px" }}>
-              <Image src="/new_logo.jpg" alt="Arthajuris" fill style={{ objectFit: "contain" }} />
+              <Image src="/new_logo.jpg" alt="Artha Juris" fill style={{ objectFit: "contain" }} />
             </div>
             <div>
               <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.4rem", fontWeight: 700, color: "var(--white)", lineHeight: 1 }}>

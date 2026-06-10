@@ -19,7 +19,7 @@ const expertiseData: Record<
     subtitle: "Strategic Legal Counsel for Business Entities & Commercial Matters",
     lead: "Adv. Mayura Maru",
     intro:
-      "Navigating the corporate legal landscape requires not just knowledge of the law but an understanding of the commercial realities that businesses face. At Arthajuris, our Corporate & Commercial Law practice provides comprehensive legal advisory services to businesses at every stage — from incorporation and contracting to dispute resolution and insolvency.",
+      "Navigating the corporate legal landscape requires not just knowledge of the law but an understanding of the commercial realities that businesses face. At Artha Juris, our Corporate & Commercial Law practice provides comprehensive legal advisory services to businesses at every stage — from incorporation and contracting to dispute resolution and insolvency.",
     whatWeOffer: [
       {
         heading: "Business Contracts & Agreements",
@@ -338,7 +338,7 @@ export async function generateMetadata({
   const data = expertiseData[slug];
   if (!data) return { title: "Not Found" };
   return {
-    title: `${data.title} | Arthajuris Legal Consultancy`,
+    title: `${data.title} | Artha Juris Legal Consultancy`,
     description: data.intro.substring(0, 160),
   };
 }
@@ -371,7 +371,7 @@ export default async function ExpertisePage({
         <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "12px" }}>
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.2rem", fontWeight: 700, color: "var(--white)" }}>
-              Arthajuris
+              Artha Juris
             </div>
             <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.25em", color: "var(--gold)", textTransform: "uppercase" }}>
               Premier Law Firm
