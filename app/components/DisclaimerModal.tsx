@@ -9,6 +9,7 @@ export default function DisclaimerModal() {
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const disclaimerAccepted = localStorage.getItem("arthajuris_disclaimer_accepted");
@@ -49,15 +50,30 @@ export default function DisclaimerModal() {
       return;
     }
     
-    // Mark as submitted in local storage
-    localStorage.setItem("arthajuris_enquiry_submitted", "true");
-    
-    // Optional: Could send data to an API here if needed in the future
-    // await fetch('/api/enquiry', { method: 'POST', body: JSON.stringify({ name, contact }) });
+    setIsSubmitting(true);
+    setError("");
 
-    setExiting(true);
-    document.body.style.overflow = "auto";
-    setTimeout(() => setVisible(false), 400);
+    try {
+      const res = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, contact }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to send details. Please try again.");
+      }
+
+      // Mark as submitted in local storage
+      localStorage.setItem("arthajuris_enquiry_submitted", "true");
+
+      setExiting(true);
+      document.body.style.overflow = "auto";
+      setTimeout(() => setVisible(false), 400);
+    } catch (err: any) {
+      setError(err.message || "An error occurred.");
+      setIsSubmitting(false);
+    }
   };
 
   if (!visible) return null;
@@ -309,23 +325,28 @@ export default function DisclaimerModal() {
 
                   <button
                     type="submit"
+                    disabled={isSubmitting}
                     style={{
                       marginTop: "12px",
                       padding: "14px",
-                      background: "#0f1c35",
+                      background: isSubmitting ? "#888" : "#0f1c35",
                       color: "#ffffff",
                       border: "none",
                       borderRadius: "4px",
                       fontSize: "1rem",
                       fontWeight: 700,
-                      cursor: "pointer",
+                      cursor: isSubmitting ? "not-allowed" : "pointer",
                       textTransform: "uppercase",
                       transition: "background 0.2s ease"
                     }}
-                    onMouseOver={(e) => e.currentTarget.style.background = "#1a2f58"}
-                    onMouseOut={(e) => e.currentTarget.style.background = "#0f1c35"}
+                    onMouseOver={(e) => {
+                      if (!isSubmitting) e.currentTarget.style.background = "#1a2f58";
+                    }}
+                    onMouseOut={(e) => {
+                      if (!isSubmitting) e.currentTarget.style.background = "#0f1c35";
+                    }}
                   >
-                    Enter Website
+                    {isSubmitting ? "Entering..." : "Enter Website"}
                   </button>
                 </form>
               </>
